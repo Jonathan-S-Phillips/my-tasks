@@ -404,6 +404,25 @@
             </ul>
         </li>
 
+                <li class="chapter">
+                    <div class="simple menu-toggler" data-toggle="collapse"
+                            data-target="#xs-components-links"
+                        >
+                        <span class="fa fa-fw fa-cogs"></span>
+                        <span>Components</span>
+                        <span class="fa fa-angle-down"></span>
+                    </div>
+                    <ul class="links collapse"
+                            id="xs-components-links"
+                        >
+                            <li class="link">
+                                <a href="components/TaskFormComponent.html" data-type="entity-link">TaskFormComponent</a>
+                            </li>
+                            <li class="link">
+                                <a href="components/TasksFilterComponent.html" data-type="entity-link">TasksFilterComponent</a>
+                            </li>
+                    </ul>
+                </li>
 
 
         <li class="chapter">
@@ -912,6 +931,25 @@
             </ul>
         </li>
 
+                <li class="chapter">
+                    <div class="simple menu-toggler" data-toggle="collapse"
+                            data-target="#components-links"
+>
+                        <span class="fa fa-fw fa-cogs"></span>
+                        <span>Components</span>
+                        <span class="fa fa-angle-down"></span>
+                    </div>
+                    <ul class="links collapse"
+                            id="components-links"
+>
+                            <li class="link">
+                                <a href="components/TaskFormComponent.html" data-type="entity-link">TaskFormComponent</a>
+                            </li>
+                            <li class="link">
+                                <a href="components/TasksFilterComponent.html" data-type="entity-link">TasksFilterComponent</a>
+                            </li>
+                    </ul>
+                </li>
 
 
         <li class="chapter">
@@ -1035,66 +1073,101 @@
                    <div class="content-data">
 
 <h1 id="mytasks">MyTasks</h1>
-<p>MyTasks is a simple application meant to create and manage Tasks. Tasks are displayed in tables, separated by state (pending or complete), and can be filtered by name, description, priority, due date, and date completed (if complete). Pending tasks also have keyword filters and visual indicators for tasks over due (tasks with due date before todays date), tasks due today, and tasks due tomorrow. Tasks have a very simple repeating capability. They can repeat daily, weekly, monthly, or yearly, and they are related to each other through the nextId property which corresponds with the id of the next Task in the sequence.</p>
-<p>It is a full stack application divided into an Angular client, Express API server,and SQLite database. The client is built using Angular 6 and Typescript, and leverages Angular Material 2 for most of the UI components. The UI is designed to be responsive, and meant to work across a variety of devices. Breakpoints from the angular CDK layout (Handset and Small) are used to determine what features are available on the screen. Smaller screen sizes have only been emulated through chrome devtools and have not been fully tested. The Express API server is built using Typescript, and utilizes the TypeORM package to handle storing data in a SQLite database.</p>
+<p><a href="https://travis-ci.org/Jonathan-S-Phillips/my-tasks"><img src="https://travis-ci.org/Jonathan-S-Phillips/my-tasks.svg?branch=master" alt="Build Status" class="img-responsive"></a></p>
+<p>MyTasks is a simple application meant to create and manage Tasks. Tasks are displayed in tables, separated by state (pending or complete), and can be filtered by name, description, priority, due date, and date completed (if complete). Pending tasks also have keyword filters and visual indicators for tasks over due (tasks with due date before todays date), tasks due today, and tasks due tomorrow. Tasks have a very simple repeating capability; they can repeat daily, weekly, monthly, or yearly.</p>
+<p>The application is a full stack <a href="https://www.typescriptlang.org/">TypeScript</a> app divided into an <a href="https://angular.io/">Angular</a> client, <a href="https://github.com/expressjs/express">Express</a> API server, and <a href="https://github.com/mapbox/node-sqlite3">SQLite</a> database. See the <a href="##built-with">Built With</a> section for more details on the client, server, and database. </p>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ul>
+<li><a href="#getting-started">Getting Started</a></li>
+<li><a href="#prerequisites">Prerequisites</a></li>
+<li><a href="#build-and-run">Build and Run</a><ul>
+<li><a href="#docker-compose-setup">Docker Compose Setup</a></li>
+<li><a href="#node-setup">Node Setup</a><ul>
+<li><a href="#development-mode">Development Mode</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#accessing-the-app">Accessing the App</a></li>
+<li><a href="#running-the-tests">Running the Tests</a><ul>
+<li><a href="#unit-tests">Unit Tests</a></li>
+<li><a href="#e2e-tests">e2e Tests</a></li>
+</ul>
+</li>
+<li><a href="#documentation">Documentation</a></li>
+<li><a href="#built-with">Built With</a></li>
+<li><a href="#authors">Authors</a></li>
+<li><a href="#acknowledgements">Acknowledgements</a></li>
+</ul>
 <h2 id="getting-started">Getting Started</h2>
-<p>To download a copy of the project you must have GIT installed and configure on your machine. If you have GIT configured you may download the source code using the following command.</p>
-<div><pre class="line-numbers"><code class="language-none">git clone https://github.com/Jonathan-S-Phillips/my-tasks</code></pre></div><p>Installing and configuring GIT on your machine is outside the scope of this document, but a few helpful links are included below.</p>
+<p>Run the following command to clone a copy of the repository into your current working directory.</p>
+<div><pre class="line-numbers"><code class="language-none">git clone https://github.com/Jonathan-S-Phillips/my-tasks</code></pre></div><p>In case you don&#39;t have GIT installed and configured on your machine a few helpful links are included below.</p>
 <ul>
 <li><a href="https://help.github.com/articles/set-up-git/">GIT</a> - Setup GIT</li>
 <li><a href="https://help.github.com/articles/cloning-a-repository/">Clone Repo</a> - Additional details on cloning GIT repo</li>
 </ul>
 <h3 id="prerequisites">Prerequisites</h3>
-<p>In order to run the application you need to either have Docker Compose or Node installed and configured. The app was built on Windows using the following setup:</p>
+<p>In order to run the application you need to either have Docker Compose or Node installed and configured. Installing and configuring Docker Compose and Node are outside the scope of this document but a few helpful links are included below.</p>
+<ul>
+<li><a href="https://docs.docker.com/compose/install/">Docker Compose</a> - Install Docker Compose</li>
+<li><a href="https://nodejs.org/en/">Node</a> - Install Node</li>
+</ul>
+<p>The app was built on Windows using the following setup:</p>
 <ul>
 <li>Docker version 18.06.0-ce-win70 (19075)</li>
 <li>Compose 1.22.0</li>
 <li>Node version 8.9.1</li>
 <li>NPM version 6.2.0 </li>
 </ul>
-<p>Installing and configuring Docker Compose and Node are outside the scope of this document but a few helpful links are included below.</p>
-<ul>
-<li><a href="https://docs.docker.com/compose/install/">Docker Compose</a> - Install Docker Compose</li>
-<li><a href="https://nodejs.org/en/">Node</a> - Install Node</li>
-</ul>
-<h3 id="build-and-run">Build and run</h3>
-<p>You can build and run the MyTasks application one of two ways.</p>
+<h3 id="build-and-run">Build and Run</h3>
+<p>Once you have successfully cloned the repository you can build and run the MyTasks application one of the following two ways.</p>
 <ol>
-<li>Docker Compose; or </li>
-<li>Node and NPM. </li>
+<li><a href="#docker-compose-setup">Docker Compose Setup</a>; or </li>
+<li><a href="#node-setup">Node Setup</a>. </li>
 </ol>
-<h4 id="docker-compose">Docker Compose</h4>
+<h4 id="docker-compose-setup">Docker Compose Setup</h4>
 <p>If you have Docker Compose configured for your system, then you can use the following command from the root or base directory of the application to build and run both the server and client containers for the app.</p>
-<div><pre class="line-numbers"><code class="language-none">docker-compose up --build</code></pre></div><p>Thats it! It may take some time to setup and configure the containers depending on your connection speed. You may also see some warnings about npm packages, but they will not prevent the app from starting. The &quot;--build&quot; option is only required when building the containers for the first time or after any changes have been made to the code base or dependencies. You may skip to &quot;Running the tests&quot; if you do not need to setup the application using Node. </p>
-<p>**Side Note: I did have to run the below command at some point when I was building the app to sync the time with the server container because of time drift.</p>
-<div><pre class="line-numbers"><code class="language-none">docker run --rm --privileged mytasks_server hwclock -s</code></pre></div><h4 id="node-setup">Node setup</h4>
-<p>If you have Node configured for your system, then you can use the npm scripts included at the root of the application to build and run the application. You can build each part of the app separately, but I have included scripts at the root to run both the server and client together. The first step to build and run the application directly in your environment is to install dependencies. You can use the following command from the root of the application to install all required dependencies for both the client and server.</p>
+<div><pre class="line-numbers"><code class="language-none">docker-compose up --build</code></pre></div><p>Thats it! The above command will initialize the full stack application with an empty database. The next time you start the app you may omit the &quot;--build&quot; option (unless you have made changes or update the node_modules). Any Tasks created and updated will be persisted if you restart the containers. Once the application is up and running you may access the client through a web browser at <a href="http://localhost:4200">http://localhost:4200</a>. More details on accessing the application and the API server are available <a href="#accessing-the-app">here</a>. </p>
+<p>It may take some time to setup and configure the containers depending on your connection speed. You may also see some warnings about npm packages, but they will not prevent the app from starting.</p>
+<p>**Side Note: I did have to run the below command at some point when I was building the app to sync the time between my host machine and the containers because of time drift.</p>
+<div><pre class="line-numbers"><code class="language-none">docker run --rm --privileged mytasks_angular-client hwclock -s
+docker run --rm --privileged mytasks_server hwclock -s</code></pre></div><h4 id="node-setup">Node Setup</h4>
+<p>If you have Node configured for your system, then you can use the npm scripts included at the root directory to build and run the application. You can build each part of the app separately, but I have included scripts at the root to run both the server and client together. The first step to build and run the application directly in your environment is to install dependencies. You can use the following command from the root of the application to install all required dependencies for both the client and server.</p>
 <div><pre class="line-numbers"><code class="language-none">npm run install-all</code></pre></div><p>If you are running npm version 6, then you will see a few vulnerabilities from the dependencies for the client. You can run the following command from the base of the client app to fix one of the vulnerabilities.</p>
 <div><pre class="line-numbers"><code class="language-none">npm audit fix</code></pre></div><p>The remaining fixes include breaking changes, which have not been tested.</p>
 <p>Once the dependencies are installed you can use the following command (again from the root of the application) which will build and run both the client and server together.</p>
-<div><pre class="line-numbers"><code class="language-none">npm run start</code></pre></div><h4 id="development-mode">Development Mode</h4>
+<div><pre class="line-numbers"><code class="language-none">npm start</code></pre></div><p>Once the application is up and running you may access the client through a web browser at <a href="http://localhost:4200">http://localhost:4200</a>. More details on accessing the application and the API server are available <a href="#accessing-the-app">here</a>.</p>
+<h5 id="development-mode">Development Mode</h5>
 <p>Continuing with the Node configuration, a script is included to start the application in development mode, which uses an in-memory version of the SQLite DB instead of persisting the DB to disk. The code is automatically set up to insert seed data from a JSON array into the DB when running the in-memory version. Run the following command to run the application in development mode.</p>
 <div><pre class="line-numbers"><code class="language-none">npm run start:dev</code></pre></div><p>All e2e tests use the in-memory version of the SQLite DB, and the unit tests use the same JSON array data inserted into the in-memory DB.</p>
-<h2 id="accessing-the-app">Accessing the app</h2>
+<h2 id="accessing-the-app">Accessing the App</h2>
 <p>Once the application is up and running you may access the client through a web browser at <a href="http://localhost:4200">http://localhost:4200</a>. The server is setup to listen on port 3000 and the main Tasks API is available at <a href="http://localhost:3000/api/tasks">http://localhost:3000/api/tasks</a>.</p>
-<h2 id="running-the-tests">Running the tests</h2>
-<p>The application has both unit and e2e tests. The client is using karma and the server is using mocha and chai for unit tests. The e2e tests use protractor.</p>
+<h2 id="running-the-tests">Running the Tests</h2>
+<p>The application has both unit and e2e tests. Currently the only way to run the tests is if you have Node configured. The client is using karma, and the server is using mocha and chai for unit tests. The e2e tests use protractor.</p>
 <h3 id="unit-tests">Unit Tests</h3>
 <p>The unit tests for both the client and server can be run using the following command from the root of the application.</p>
-<div><pre class="line-numbers"><code class="language-none">npm test</code></pre></div><p>A script is also included to generate coverage reports with the unit tests. Running the following command will run the unit tests and generate coverage reports as well.</p>
+<div><pre class="line-numbers"><code class="language-none">npm test</code></pre></div><p>The server tests should run first followed by the client tests. A script is also included to generate coverage reports with the unit tests. Running the following command will run the unit tests and generate coverage reports as well.</p>
 <div><pre class="line-numbers"><code class="language-none">npm run test:coverage</code></pre></div><p>Separate coverage reports are generated for the client and the server using Istanbul Code Coverage. A coverage directory is added to both the client and server directories and the reports are added there. To view the reports browse to either the client or server, select the corresponding coverage directory, and open the index.html file found using your favorite browser.</p>
 <h3 id="e2e-tests">e2e Tests</h3>
 <p>The e2e tests can be run using the following command from the root of the application.</p>
-<div><pre class="line-numbers"><code class="language-none">npm run e2e</code></pre></div><p>This command will initialize the server and client, and execute the e2e tests against the app.</p>
-<p>** A Note on e2e tests: I have tested the base e2e script on several machines and they only seems to work consistently on relatively high powered processors. While the e2e tests will pass on slower processors, they will fail intermittently with async timeout exceptions. The only way I can seem to get e2e tests to pass more consistently on slower processors is using the &quot;headless&quot; chrome options. If you see failures while running the e2e tests then you might want to try running the headless e2e tests using the following command.</p>
-<div><pre class="line-numbers"><code class="language-none">npm run e2e:headless</code></pre></div><p>A third e2e test script is included which is meant to take screenshots of the application and various elements throughout the app for use in the AboutComponent of the app. The Microsoft Edge browser is the only browser that seems to work to take screenshots of individual elements, so the script uses Edge for the tests. Setting up the Edge browser for e2e tests requires manually downloading the webdriver. Instructions for setting this up are outside the scope of this document. If you have your system set up with the Edge webriver, then you may run the following command to take screenshots while the e2e tests are running.</p>
-<div><pre class="line-numbers"><code class="language-none">npm run e2e:screenshots</code></pre></div><p>If you try to run the above command without setting up the Edge browser with protractor, then the script will fail.</p>
+<div><pre class="line-numbers"><code class="language-none">npm run e2e</code></pre></div><p>This command will initialize the server and client, and execute the e2e tests against the app using the chrome browser. You may also run the e2e tests without a browser using the following command.</p>
+<div><pre class="line-numbers"><code class="language-none">npm run e2e:headless</code></pre></div><p>A third e2e test script is included which is meant to take screenshots of the application and various elements throughout the app for use in the AboutComponent of the app. The Microsoft Edge browser is the only browser that seems to work to take screenshots of individual elements, so the script uses Edge for the tests. To set up the Edge browser for e2e tests you must manually download the MicrosoftWebDriver, which is available <a href="https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/">here</a>. Once you have downloaded the driver you must add it to the following angular-client directory.</p>
+<div><pre class="line-numbers"><code class="language-none"> angular-client/node_modules/protractor/node_modules/webdriver-manager/selenium</code></pre></div><p>**Note you may have to remove and re-add this file if you update the node_modules. Once you have your system set up with the Edge webriver, then you may run the following command to take screenshots while the e2e tests are running.</p>
+<div><pre class="line-numbers"><code class="language-none">npm run e2e:screenshots</code></pre></div><p>If you try to run the above command without setting up the Edge browser with protractor, then the script will fail. Also I have not tested this on a machine the does not already have Edge installed, so if you are running a machine that does not have Edge installed then you may run into issues.</p>
 <h2 id="documentation">Documentation</h2>
-<p>Documentation for the client and web API are included with the source in the /doc directory. Each documentation is included in its own directory (angular-client for the client; server for the API). Simply browse to the directory of the portion of the app you want to view the documentation for and open the main index.html file in your favotire browser. </p>
-<p>Documentation for the client was built using <a href="https://compodoc.app/">Compodoc</a> and documentation for the web API was built using <a href="http://apidocjs.com/">apiDoc</a>. TODO setup and add link to github pages version of docs.</p>
-<p>You can run the following command to generate the documents for both the client and web API, which will update the /doc directory with the latest changes from the source .</p>
-<div><pre class="line-numbers"><code class="language-none">npm run doc</code></pre></div><h2 id="built-with">Built With</h2>
+<p>Documentation for the client code and web API are included and available at the below URLs.</p>
 <ul>
+<li><a href="https://jonathan-s-phillips.github.io/my-tasks/angular-client/">Angular Client</a></li>
+<li><a href="https://jonathan-s-phillips.github.io/my-tasks/server/">API</a></li>
+</ul>
+<p>Documentation for the client was built using <a href="https://compodoc.app/">Compodoc</a> and documentation for the web API was built using <a href="http://apidocjs.com/">apiDoc</a>. Scripts are included to generate the documentation locally as well. You can run the following command which will update the docs directory with the latest changes from the source.</p>
+<div><pre class="line-numbers"><code class="language-none">npm run doc</code></pre></div><h2 id="built-with">Built With</h2>
+<p>The client is built using Angular 6, and leverages <a href="https://material.angular.io/">Angular Material 2</a> for most of the UI components. The UI is designed to be responsive, and meant to work across a variety of devices. Breakpoints from the angular CDK layout (Handset and Small) are used to determine what features are available on the screen. Smaller screen sizes have only been emulated through chrome devtools and have not been fully tested though. </p>
+<p>The Express API server utilizes the <a href="https://github.com/typeorm/typeorm">TypeORM</a> package to handle storing data in a SQLite database. The database only contains a single table for Tasks. To implement the repeating capability an optional one-to-one relationship is used to represent the relation from one Task to the next in the sequence, through the nextId property. A simple Entity Relationship (ER) diagram is included below</p>
+<p><img src="docs/images/tasks-er-diagram.png" alt="Tasks ER Diagram" class="img-responsive"></p>
+<p>Below is a complete list of the technologies used to build the the app and links to their home or github pages.</p>
+<ul>
+<li><a href="https://www.typescriptlang.org/">TypeScript</a></li>
 <li><a href="https://angular.io/">Angular</a> - UI Components</li>
 <li><a href="https://material.angular.io/">Angular Material 2</a> - Material Design components</li>
 <li><a href="https://github.com/FortAwesome/Font-Awesome">Font-Awesome</a> - Icons</li>
@@ -1108,10 +1181,8 @@
 <ul>
 <li><strong>[Jonathan Phillips]</strong> - (<a href="https://github.com/Jonathan-S-Phillips">https://github.com/Jonathan-S-Phillips</a>)</li>
 </ul>
-<h2 id="license">License</h2>
-<p>This project is licensed under the MIT License - see the <a href="LICENSE.md">LICENSE.md</a> file for details</p>
 <h2 id="acknowledgments">Acknowledgments</h2>
-<p>Prior to developing this app I had only worked with Angular, so it was an exciting challenge to learn how to set up and configure an Express API server. I also enjoyed learning about Docker containers and how to use Compose to define and run a multi-container Docker app. Also even though I have worked with Angular before, I was using a mix of Typescript, jQuery, and the Bootstrap UI framework. For the purposes of this app I decided to go with a solution built entirely in Typescript, which also gave me an opportunity to dive into Angular Material 2.</p>
+<p>Prior to developing this app I had only worked with Angular, so it was an exciting challenge to learn how to set up and configure an Express API server. I also enjoyed learning about Docker containers and how to use Compose to define and run a multi-container Docker app. Also even though I have worked with Angular before, I was using a mix of Typescript, jQuery, and the Bootstrap UI framework. For the purposes of this app I decided to go with a solution built entirely in TypeScript, which also gave me an opportunity to dive into Angular Material 2.</p>
 
 
 
