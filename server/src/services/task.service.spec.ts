@@ -15,7 +15,7 @@ import { TasksHelper } from '../../test/util/tasks-helper';
 describe("TaskService", () => {
 
     let tasksHelper: TasksHelper;
-    let today = moment().utc();
+    let today = moment().startOf('day').utc();
     let yesterday = moment().utc().subtract(1, 'days');
 
     before(done => {
