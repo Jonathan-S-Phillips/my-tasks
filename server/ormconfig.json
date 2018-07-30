@@ -1,0 +1,55 @@
+[
+    {
+        "name": "in-memory-db",
+        "type": "sqlite",
+        "database": ":memory:",
+        "synchronize": true,
+        "entities": [
+            "src/entity/*.ts"
+        ],
+        "migrations": [
+            "src/migration/**/*.ts"
+        ],
+        "cli": {
+            "entitiesDir": "src/entity",
+            "migrationsDir": "src/migration"
+        }
+    },
+    {
+        "name": "sqlite",
+        "type": "sqlite",
+        "database": "./data/tasks.sq3",
+        "synchronize": true,
+        "entities": [
+            "src/entity/*.ts"
+        ],
+        "migrations": [
+            "src/migration/**/*.ts"
+        ],
+        "cli": {
+            "entitiesDir": "src/entity",
+            "migrationsDir": "src/migration"
+        }
+    },
+    {
+        "name": "mysql-db",
+        "type": "mysql",
+        "host": "mysqldb",
+        "port": 3306,
+        "username": "mytasksuser",
+        "password": "mytaskspassword",
+        "database": "mytasks",
+        "synchronize": true,
+        "logging": false,
+        "entities": [
+            "src/entity/*.ts"
+        ],
+        "migrations": [
+            "src/migration/**/*.ts"
+        ],
+        "cli": {
+            "entitiesDir": "src/entity",
+            "migrationsDir": "src/migration"
+        }
+    }
+]

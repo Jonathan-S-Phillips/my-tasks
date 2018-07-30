@@ -1,0 +1,7 @@
+<div [class.loading]="loading">
+    <mat-spinner *ngIf="loading"
+                 [diameter]="50"></mat-spinner>
+</div>
+<app-header></app-header>
+<router-outlet></router-outlet>
+<app-footer *ngIf="!isMediumScreen"></app-footer>

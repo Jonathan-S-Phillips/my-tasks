@@ -1,0 +1,74 @@
+<header class="mat-elevation-z6">
+    <mat-toolbar *ngIf="showSearchBar; else mainHeader" fxFlex="100%" class="marker-toolbar-search-bar">
+        <tasks-filter fxFlex="100%" #taskFilterMediumScreen></tasks-filter>
+        <button mat-icon-button 
+                matTooltip="Hide search bar and clear filter"
+                class="marker-button-hide-search-bar" 
+                (click)="setShowSearchBar(false)">
+            <fa-icon icon="times"></fa-icon>
+            <div class="mat-button-focus-overlay"></div>
+            <div class="mat-button-ripple mat-ripple"></div>
+        </button>
+    </mat-toolbar>
+    <ng-template #mainHeader>
+        <mat-toolbar *ngIf="isMediumScreen; else largeScreen" class="marker-toolbar-medium-screen">
+            <button mat-icon-button 
+                    class="marker-button-toggle-sidenav"
+                    (click)="onSidenavMenuToggle()">
+                <fa-icon icon="bars"></fa-icon>
+                <div class="mat-button-focus-overlay"></div>
+                <div class="mat-button-ripple mat-ripple"></div>
+            </button>
+            <a mat-button class="mat-button" [routerLink]="['tasks/pending']">
+                <span id="myTasksHeaderButtonText">
+                    <fa-icon icon="clipboard-list"></fa-icon>
+                    MyTasks
+                </span>
+                <div class="mat-button-focus-overlay"></div>
+                <div class="mat-button-ripple mat-ripple"></div>
+            </a>
+            
+            <span class="spacer"></span>
+
+            <!-- the search button to enable the search bar -->
+            <button mat-icon-button 
+                    matTooltip="Show search bar"
+                    (click)="setShowSearchBar(true)"
+                    class="marker-button-show-search-bar"
+                    fxHide="true" 
+                    fxShow.lt-md="true">
+                <span class="mat-button-wrapper">
+                    <fa-icon icon="search"></fa-icon>
+                </span>
+                <div class="mat-button-focus-overlay"></div>
+                <div class="mat-button-ripple mat-ripple"></div>
+            </button>
+        </mat-toolbar>
+        <ng-template #largeScreen>
+            <mat-toolbar class="marker-toolbar-large-screen">
+                <button mat-icon-button 
+                        matTooltip="{{sidenavMenuState == 'Collapse' ? 'Expand' : 'Collapse'}} side bar"
+                        class="marker-button-toggle-sidenav"
+                        (click)="onSidenavMenuToggle()">
+                    <fa-icon icon="bars"></fa-icon>
+                    <div class="mat-button-focus-overlay"></div>
+                    <div class="mat-button-ripple mat-ripple"></div>
+                </button>
+                <a mat-button 
+                   matTooltip="View Pending Tasks"
+                   class="mat-button"
+                   [routerLink]="['tasks/pending']">
+                    <span id="myTasksHeaderButtonText">
+                        <fa-icon icon="clipboard-list"></fa-icon>
+                        MyTasks
+                    </span>
+                    <div class="mat-button-focus-overlay"></div>
+                    <div class="mat-button-ripple mat-ripple"></div>
+                </a>
+                
+                <span class="spacer"></span>
+                <tasks-filter #taskFilterLargeScreen></tasks-filter>
+            </mat-toolbar>
+        </ng-template>
+    </ng-template>
+</header>

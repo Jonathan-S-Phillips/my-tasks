@@ -1,0 +1,29 @@
+<button *ngIf="!hideEditButton"
+        mat-icon-button 
+        matTooltip="Edit Task" 
+        [disabled]="disableEditButton"
+        class="marker-button-edit-task"
+        (click)="openEditDialog($event)">
+    <fa-icon icon="edit"></fa-icon>
+    <div class="mat-button-focus-overlay"></div>
+    <div class="mat-button-ripple mat-ripple"></div>
+</button>
+<button *ngIf="!hideCompleteButton"
+        mat-icon-button 
+        matTooltip="Complete Task"
+        (click)="openCompleteDialog($event)" 
+        [disabled]="disableCompleteButton"
+        class="marker-button-complete-task">
+    <fa-icon [icon]="['far', 'check-square']"></fa-icon> 
+    <div class="mat-button-focus-overlay"></div>
+    <div class="mat-button-ripple mat-ripple"></div>
+</button>
+<button mat-icon-button 
+        matTooltip="Delete Task"
+        (click)="openConfirmDeleteDialog($event)" 
+        [disabled]="disableDeleteButton"
+        class="marker-button-delete-task">
+    <fa-icon icon="trash"></fa-icon>
+    <div class="mat-button-focus-overlay"></div>
+    <div class="mat-button-ripple mat-ripple"></div>
+</button>

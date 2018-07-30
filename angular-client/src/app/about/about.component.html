@@ -1,0 +1,149 @@
+<div class="about-content">
+    <div class="about-scroll" (scroll)="onAboutScroll($event)" #aboutScroll>
+        <h1>MyTasks</h1>
+
+        <b>TABLE OF CONTENTS</b><br/>
+
+        <ol>
+            <li><a [routerLink]="['.']" fragment="description"><b>Description of Application</b></a></li>
+            <li><a [routerLink]="['.']" fragment="create"><b>Create Task</b></a></li>
+            <li><a [routerLink]="['.']" fragment="complete"><b>Complete Task</b></a></li>
+            <li><a [routerLink]="['.']" fragment="delete"><b>Delete Task</b></a></li>
+            <li><a [routerLink]="['.']" fragment="filter"><b>Filter Tasks</b></a></li>
+        </ol>
+
+        <h2 id="description">1. Description of Application</h2>
+        <p>
+            MyTasks is a simple application meant to create and manage Tasks. Tasks can be
+            modified, completed, and deleted. Tasks are displayed in tables and are separated 
+            by state; pending or complete. By default tasks are sorted by due date in 
+            ascending order.
+        </p>
+        <p>
+            The UI is designed to be responsive, and meant to work across a variety of devices. Some
+            of the enhanced functionality is limited on smaller devices (due to the smaller screen 
+            space and lack of mouse input), so it is recommended to use a desktop or laptop if 
+            available. Additionally smaller screen sizes have only been emulated through chrome 
+            devtools and have not been fully tested.
+        </p>
+        <p>
+            *All screenshots below were taken on a desktop.
+        </p>
+
+        <h2 id="create">2. Create Task</h2>
+
+        <p>
+            To create a Task click the <img [src]="['/assets/img/create-button-sidenav.png']" style="width:6em; height:auto">
+            button located in the sidenav menu on the left hand side of the screen. This 
+            will open a modal dialog where you can enter the details for a Task. You must 
+            enter a name, description, and due date as shown below.
+        </p>
+
+        <div fxLayoutAlign="center center">
+            <img [src]="['/assets/img/create-non-repeating.png']">
+        </div>
+
+        <p>
+            All Tasks will default to a "Low" priority, but you may modify this using the
+            "Priority" select drop down provided on the form. You may also create a 
+            repeating Task by selecting anything other than "Does not repeat" in the 
+            "Repeat" field at the bottom of the form. This will enable the "End After" 
+            field where you can enter the number of times you would like this Task to 
+            repeat. A sample repeating Task is shown below.
+        </p>
+
+        <div fxLayoutAlign="center center">
+            <img [src]="['/assets/img/create-repeating.png']">
+        </div>
+
+        <p>
+            Click the <img [src]="['/assets/img/create-button.png']" style="width:6em; height:auto"> 
+            button once you have completely filled out the form to finish creating your Task.
+        </p>
+
+        <h2 id="complete">3. Complete Task</h2>
+
+        <p>
+            To complete a Task click the row of the desired Task in the table to modify
+            the Task. This will open a page as seen below where you can complete and/or 
+            update the the details of the Task.
+        </p>
+
+        <div fxLayoutAlign="center center">
+            <img [src]="['/assets/img/edit-task.png']">
+        </div>
+
+        <p>
+            Click the <img [src]="['/assets/img/complete-button-button-bar.png']" style="width:2em; height:auto"> button
+            in the button bar above the Task details to open the dialog to complete a Task. 
+            You must enter the date the Task is completed as displayed below. Then click the
+            <img [src]="['/assets/img/complete-button.png']" style="width:6em; height:auto">
+            button to finish completing the Task.
+        </p>
+
+        <div fxLayoutAlign="center center">
+            <img [src]="['/assets/img/complete-task.png']">
+        </div>
+
+        <p>
+            Additionally you may mark one or more Tasks complete from the pending Tasks table,
+            as long as they were all complete on the same date. Select the checkbox 
+            of one or more Tasks to enable the <img [src]="['/assets/img/complete-button-button-bar.png']" style="width:2em; height:auto"> 
+            button in the button bar above the table. Then click the 
+            <img [src]="['/assets/img/complete-button-button-bar.png']" style="width:2em; height:auto">
+            button to display the same dialog as above and complete all selected Tasks.  
+        </p>
+
+        <h2 id="delete">4. Delete Task</h2>
+
+        <p>
+            To delete a Task click the row of the desired Task in the table as in the "Complete
+            Task" section. Then click the <img [src]="['/assets/img/delete-button-button-bar.png']" style="width:2em; height:auto">
+            button in the button bar displayed above the Task details. This will open a confirmation
+            dialog as displayed below.
+        </p>
+
+        <div fxLayoutAlign="center center">
+            <img [src]="['/assets/img/delete-task.png']">
+        </div>
+
+        <p>
+            You must click the <img [src]="['/assets/img/delete-button.png']" style="width:6em; height:auto"> 
+            button to delete the Task.
+        </p>
+
+        <p>
+            Additionally you may delete one or more Tasks from the table views (pending
+            or complete). Select the checkbox of one or more Tasks to enable the 
+            <img [src]="['/assets/img/delete-button-button-bar.png']" style="width:2em; height:auto"> 
+            button in the button bar above the table. Click the 
+            <img [src]="['/assets/img/delete-button-button-bar.png']" style="width:2em; height:auto">
+            button to display the same dialog as above and delete all selected Tasks.  
+        </p>
+
+        <h2 id="filter">5. Filter Tasks</h2>
+
+        <p>
+            Tasks can be filtered using the 
+            <img [src]="['/assets/img/tasks-filter.png']" style="width:8em; height:auto"> 
+            input in the header. You may filter Tasks on any visible column (including due date 
+            and date completed). To sort by date click the 
+            <img [src]="['/assets/img/datepicker-button.png']" style="width:2em; height:auto">
+            button to open the date picker and select the desired date. Additionally, pending 
+            Tasks can be filtered using the sidenav menu items to filter Tasks over due, due 
+            today, and due tomorrow. *Note the menu items are just triggering special keyword 
+            filters which can also be used in the 
+            <img [src]="['/assets/img/tasks-filter.png']" style="width:8em; height:auto">
+            input. The actual filters are "overdue", "today", and "tomorrow". You may also
+            enter the current date in the search field and you will see the same results as
+            "today".
+        </p>
+    </div>
+</div> 
+<button mat-mini-fab color="primary" *ngIf="displayScrollToTop"
+    (click)="scrollToTop()"
+    class="scroll-to-top">
+    <fa-icon icon="angle-up"></fa-icon>
+    <div class="mat-button-focus-overlay"></div>
+    <div class="mat-button-ripple mat-ripple"></div>
+</button>

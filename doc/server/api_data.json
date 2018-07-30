@@ -1,0 +1,573 @@
+[
+  {
+    "type": "patch",
+    "url": "/api/tasks/:id",
+    "title": "Complete Task",
+    "name": "Complete_Task",
+    "version": "0.0.1",
+    "description": "<p>Completes the Task with the given 'id' and returns the resulting JSON.</p>",
+    "group": "Task",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "id",
+            "description": "<p>The Tasks unique ID. Not required when completing list of Tasks.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n    \"meta\": {\n        \"transition\": \"complete\"\n    },\n    \"data\": {\n        \"properties\": {\n            \"dateCompleted\": \"2018-06-23\"\n        }\n    }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/controllers/task.controller.ts",
+    "groupTitle": "Task",
+    "error": {
+      "fields": {
+        "Error 404": [
+          {
+            "group": "Error 404",
+            "optional": false,
+            "field": "error",
+            "description": "<p>The error that was thrown.</p>"
+          },
+          {
+            "group": "Error 404",
+            "optional": false,
+            "field": "error.message",
+            "description": "<p>The error message.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 404 NotFound\n{ \n    \"error\": { \n        \"message\": \"NotFound\" \n    }\n}",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
+    "type": "patch",
+    "url": "/api/tasks/:id",
+    "title": "Complete Tasks",
+    "name": "Complete_Tasks",
+    "version": "0.0.1",
+    "description": "<p>Completes the Tasks with the given 'ids' in the body and returns the resulting JSON. Allows for bulk completion.</p>",
+    "group": "Task",
+    "parameter": {
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n    \"meta\": {\n        \"transition\": \"complete\"\n    },\n    \"data\": {\n        \"properties\": {\n            \"dateCompleted\": \"2018-06-23\"\n        },\n        \"ids\": [1, 2, 3]\n    }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Task[]",
+            "optional": false,
+            "field": "task",
+            "description": "<p>A Task.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "task.id",
+            "description": "<p>The Tasks unique ID.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "task.name",
+            "description": "<p>The name of the Task.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "task.description",
+            "description": "<p>The description of the Task.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n[{\n    \"id\": 1,\n    \"name\": \"Task\",\n    \"description\": \"A description\"\n},{\n    \"id\": 2,\n    \"name\": \"Task\",\n    \"description\": \"A description\"\n},{\n    \"id\": 1,\n    \"name\": \"Task\",\n    \"description\": \"A description\"\n}]",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/controllers/task.controller.ts",
+    "groupTitle": "Task",
+    "error": {
+      "fields": {
+        "Error 404": [
+          {
+            "group": "Error 404",
+            "optional": false,
+            "field": "error",
+            "description": "<p>The error that was thrown.</p>"
+          },
+          {
+            "group": "Error 404",
+            "optional": false,
+            "field": "error.message",
+            "description": "<p>The error message.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 404 NotFound\n{ \n    \"error\": { \n        \"message\": \"NotFound\" \n    }\n}",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
+    "type": "delete",
+    "url": "/api/tasks/:id",
+    "title": "Delete Task",
+    "version": "0.0.1",
+    "name": "Delete",
+    "description": "<p>Delete a task with the given id</p>",
+    "group": "Task",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "id",
+            "description": "<p>The Tasks unique ID.</p>"
+          }
+        ]
+      }
+    },
+    "filename": "src/controllers/task.controller.ts",
+    "groupTitle": "Task",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "id",
+            "description": "<p>The Tasks unique ID.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>The name of the Task.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "description",
+            "description": "<p>The description of the Task.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"id\": 1,\n    \"name\": \"Task\",\n    \"description\": \"A description\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 404": [
+          {
+            "group": "Error 404",
+            "optional": false,
+            "field": "error",
+            "description": "<p>The error that was thrown.</p>"
+          },
+          {
+            "group": "Error 404",
+            "optional": false,
+            "field": "error.message",
+            "description": "<p>The error message.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 404 NotFound\n{ \n    \"error\": { \n        \"message\": \"NotFound\" \n    }\n}",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
+    "type": "get",
+    "url": "/api/tasks",
+    "title": "List Tasks",
+    "version": "0.0.1",
+    "description": "<p>Gets an array and count of Tasks that match the isComplete and filter query parameters. The results can be paged through when using pageNumber and pageSize parameters. The full results can be returned if pageSize parameter of -1 is used.</p>",
+    "group": "Task",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Boolean",
+            "optional": true,
+            "field": "isComplete",
+            "defaultValue": "false",
+            "description": "<p>Boolean to query for complete or incomplete Tasks with default false or incomplete.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "filter",
+            "description": "<p>Filter to query Tasks on with default &quot;&quot; (can filter on any Task property other than isComplete).</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "sort",
+            "defaultValue": "dueDate",
+            "description": "<p>Column of Task to sort on with default &quot;dueDate&quot;.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "order",
+            "defaultValue": "ASC",
+            "description": "<p>Order for results with default &quot;ASC&quot;.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": true,
+            "field": "pageNumber",
+            "defaultValue": "0",
+            "description": "<p>Page of results to return with default 0.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": true,
+            "field": "pageSize",
+            "defaultValue": "20",
+            "description": "<p>Number of results to return with default 20.</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "curl -i http://localhost:3000/api/tasks\ncurl -i http://localhost:3000/api/tasks?isComplete=false\ncurl -i http://localhost:3000/api/tasks?isComplete=false&filter=overdue\ncurl -i http://localhost:3000/api/tasks?isComplete=false&filter=overdue&sort=name\ncurl -i http://localhost:3000/api/tasks?isComplete=false&filter=overdue&sort=name&order=DESC\ncurl -i http://localhost:3000/api/tasks?isComplete=false&filter=overdue&sort=name&order=DESC&pageNumber=1\ncurl -i http://localhost:3000/api/tasks?isComplete=false&filter=overdue&sort=name&order=DESC&pageNumber=1&pageSize=10",
+        "type": "curl"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "meta",
+            "description": "<p>The meta information.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "meta.total",
+            "description": "<p>The total number of results.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "meta.totalPages",
+            "description": "<p>The total number of pages of results.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Task[]",
+            "optional": false,
+            "field": "data",
+            "description": "<p>List of Tasks.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"meta\": {\n        \"total\": 10\n        \"totalPages\": \"1\"\n    },\n    \"data\": [\n        {\n            \"id\": 1, \n            \"name\": \"Task\", \n            \"description\": \"A description\", \n            \"dueDate\": \"2018-06-23\" \n        }\n        ...    \n    ]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/controllers/task.controller.ts",
+    "groupTitle": "Task",
+    "name": "GetApiTasks"
+  },
+  {
+    "type": "get",
+    "url": "/api/tasks/:id",
+    "title": "Get Task",
+    "version": "0.0.1",
+    "description": "<p>Gets the Task with the given 'id' and returns the resulting JSON.</p>",
+    "group": "Task",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "id",
+            "description": "<p>The Tasks unique ID.</p>"
+          }
+        ]
+      }
+    },
+    "filename": "src/controllers/task.controller.ts",
+    "groupTitle": "Task",
+    "name": "GetApiTasksId",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "id",
+            "description": "<p>The Tasks unique ID.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>The name of the Task.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "description",
+            "description": "<p>The description of the Task.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"id\": 1,\n    \"name\": \"Task\",\n    \"description\": \"A description\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 404": [
+          {
+            "group": "Error 404",
+            "optional": false,
+            "field": "error",
+            "description": "<p>The error that was thrown.</p>"
+          },
+          {
+            "group": "Error 404",
+            "optional": false,
+            "field": "error.message",
+            "description": "<p>The error message.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 404 NotFound\n{ \n    \"error\": { \n        \"message\": \"NotFound\" \n    }\n}",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
+    "type": "patch",
+    "url": "/api/tasks/:id",
+    "title": "Update Task",
+    "version": "0.0.1",
+    "description": "<p>Updates the Task with the given 'id' and returns the resulting JSON. If a Task is a repeating Task, then it and all remaining Tasks can be updated when the updateAll=true query param is included in the request.</p>",
+    "group": "Task",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "id",
+            "description": "<p>The Tasks unique ID.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "updateAll",
+            "description": "<p>Boolean to indicate if all remaining Tasks in repeating sequence should be updated.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n    \"meta\": {\n        \"transition\": \"update\"\n    },\n    \"data\": {\n        \"properties\": {\n            \"id\": 1, \n            \"name\": \"Task\", \n            \"description\": \"A description\", \n            \"dueDate\": \"2018-06-23\" \n        }\n    }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/controllers/task.controller.ts",
+    "groupTitle": "Task",
+    "name": "PatchApiTasksId",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "id",
+            "description": "<p>The Tasks unique ID.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>The name of the Task.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "description",
+            "description": "<p>The description of the Task.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"id\": 1,\n    \"name\": \"Task\",\n    \"description\": \"A description\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 404": [
+          {
+            "group": "Error 404",
+            "optional": false,
+            "field": "error",
+            "description": "<p>The error that was thrown.</p>"
+          },
+          {
+            "group": "Error 404",
+            "optional": false,
+            "field": "error.message",
+            "description": "<p>The error message.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 404 NotFound\n{ \n    \"error\": { \n        \"message\": \"NotFound\" \n    }\n}",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
+    "type": "post",
+    "url": "/api/tasks",
+    "title": "Save Task",
+    "version": "0.0.1",
+    "description": "<p>Creates a Task and returns the resulting JSON.</p>",
+    "group": "Task",
+    "filename": "src/controllers/task.controller.ts",
+    "groupTitle": "Task",
+    "name": "PostApiTasks",
+    "parameter": {
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n    \"name\": \"Task\",\n    \"description\": \"A description\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "id",
+            "description": "<p>The Tasks unique ID.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>The name of the Task.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "description",
+            "description": "<p>The description of the Task.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"id\": 1,\n    \"name\": \"Task\",\n    \"description\": \"A description\"\n}",
+          "type": "json"
+        }
+      ]
+    }
+  }
+]

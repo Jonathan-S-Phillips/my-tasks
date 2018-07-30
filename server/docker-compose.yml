@@ -1,0 +1,14 @@
+version: '3.5'
+
+services:
+
+  server:
+    container_name: server
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - '.:/usr/src'
+      - '/usr/src/node_modules'
+    ports:
+      - '3000:3000'

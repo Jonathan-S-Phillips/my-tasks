@@ -1,0 +1,65 @@
+{
+    "name": "server",
+    "version": "0.0.1",
+    "description": "MyTasks Web API.",
+    "scripts": {
+        "doc": "apidoc -i src/controllers -o ../doc/server",
+        "start": "ts-node src/server.ts --db sqlite",
+        "start:in-memory-db": "ts-node src/server.ts --db in-memory-db",
+        "test": "mocha --require ts-node/register src/**/**.spec.ts",
+        "test:coverage": "nyc mocha --require ts-node/register src/**/**.spec.ts"
+    },
+    "dependencies": {
+        "@angular/core": "^6.0.3",
+        "body-parser": "^1.18.3",
+        "cors": "^2.8.4",
+        "express": "^4.16.3",
+        "moment": "^2.22.2",
+        "mysql": "^2.15.0",
+        "reflect-metadata": "^0.1.12",
+        "rxjs": "^6.2.0",
+        "sqlite3": "^4.0.2",
+        "typeorm": "0.2.7",
+        "typescript": "^2.8.4",
+        "zone.js": "^0.8.26"
+    },
+    "devDependencies": {
+        "@types/body-parser": "^1.17.0",
+        "@types/chai": "^4.1.4",
+        "@types/cors": "^2.8.4",
+        "@types/express": "^4.16.0",
+        "@types/http-errors": "^1.6.1",
+        "@types/mocha": "^5.2.2",
+        "@types/node": "^10.1.4",
+        "@types/supertest": "^2.0.4",
+        "@types/yargs": "^11.0.0",
+        "apidoc": "^0.17.6",
+        "chai": "^4.1.2",
+        "istanbul": "^0.4.5",
+        "mocha": "^5.2.0",
+        "nyc": "^12.0.2",
+        "source-map-support": "^0.5.6",
+        "supertest": "^3.1.0",
+        "ts-node": "3.3.0"
+    },
+    "nyc": {
+        "include": [
+            "src/**/*.ts"
+        ],
+        "exclude": [
+            "src/**/*.spec.ts"
+        ],
+        "extension": [
+            ".ts"
+        ],
+        "require": [
+            "ts-node/register"
+        ],
+        "reporter": [
+            "text-summary",
+            "html"
+        ],
+        "sourceMap": true,
+        "instrument": true
+    }
+}

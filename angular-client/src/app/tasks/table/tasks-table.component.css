@@ -1,0 +1,56 @@
+.duration-hover {
+    display:block;
+    visibility: hidden;
+}
+
+mat-row:hover .duration-hover {
+    visibility: visible;
+}
+
+.mat-column-dateCompleted {
+    flex: 0 0 175px;
+}
+
+.mat-column-dueDate,
+.mat-column-name {
+    flex: 0 0 200px;
+}
+
+.mat-column-dueDate-complete,
+.mat-column-priority {
+    flex: 0 0 100px;
+}
+
+.mat-column-select {
+    flex: 0 0 50px;
+}
+
+.mat-table {
+    overflow:auto;
+    max-height: 100vh;
+}
+
+@media(min-width:992px) {
+    .mat-table {
+        max-height: 100%;
+    }
+}
+
+.row-red {
+    background-color: red;
+}
+
+.row-orange {
+    background-color: orange;
+}
+
+.row-yellow {
+    background-color: yellow;
+}
+
+.scroll-to-top {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    z-index: 10;
+}

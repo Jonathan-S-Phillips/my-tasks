@@ -1,0 +1,9 @@
+<span class="marker-list-item">
+    <fa-icon *ngIf="icon" icon="{{icon}}"></fa-icon>
+    <span *ngIf="expand" class="pl-2">{{text}}</span>
+    <span *ngIf="text !== 'Complete'" 
+            class="{{buttonClass}}"
+            [matBadge]="numTasksDue" 
+            [matBadgeHidden]="numTasksDue == 0" 
+            matBadgeOverlap="true"></span>
+</span>

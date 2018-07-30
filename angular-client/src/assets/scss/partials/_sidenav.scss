@@ -1,0 +1,54 @@
+/* button badge styles */
+.defaultBadge .mat-badge-content {
+    background: white;
+}
+
+.overDueBadge .mat-badge-content {
+    background: red;
+}
+
+.dueTodayBadge .mat-badge-content {
+    background: orange;
+}
+
+.dueTomorrowBadge .mat-badge-content {
+    background: yellow;
+}
+
+.mat-badge-content {
+    border: thin ridge;
+    color: black;
+    top: 6px !important;
+    right: 6px !important;
+}
+
+.expand .mat-badge-content {
+    top: 11px !important;
+    right: 11px !important;
+}
+
+.mat-list-item {
+    border-right: 3px solid transparent;
+}
+
+/* add background color and black right border to mark selected list item */
+.selected-list-item {
+    background: rgba(12,13,14,0.05);
+    border-right: 3px solid black;
+}
+
+/* styles for sidenav container 
+    (contains sidenav and main content) */
+.sidenav-container {
+    height: 85%;
+    display: flex;
+    flex-direction: row;
+}
+
+/* styles for main content next to sidenav */
+.sidenav-content {
+    background-color: white;
+    display: flex;
+    flex-grow: 1;
+    overflow-y: hidden !important;
+}

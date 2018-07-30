@@ -1,0 +1,98 @@
+<div *ngIf="!isMediumScreen">
+    <button-bar [disableCompleteButton]='!enableCompleteButton'
+                [disableDeleteButton]='!enableDeleteButton'
+                [disableEditButton]='!enableEditButton'
+                [tasks]='selection.selected'
+                [length]="dataSource.total" 
+                [pageSize]="20" 
+                [pageSizeOptions]="[20, 50, 100]" 
+                [showFirstLastButtons]="true"></button-bar>
+</div>
+<mat-table [dataSource]="dataSource" 
+           matSort 
+           matSortDisableClear
+           matSortActive="dueDate" 
+           matSortDirection="asc" 
+           (scroll)="onTableScroll($event)" 
+           #taskTable>
+    <!-- Checkbox Column -->
+    <ng-container matColumnDef="select">
+        <mat-header-cell *matHeaderCellDef>
+            <mat-checkbox class="marker-checkbox-select-all"
+                          (change)="$event ? masterToggle() : null"
+                          [checked]="selection.hasValue() && isAllSelected()"
+                          [indeterminate]="selection.hasValue() && !isAllSelected()">
+            </mat-checkbox>
+        </mat-header-cell>
+        <mat-cell *matCellDef="let row">
+            <mat-checkbox class="marker-checkbox-row-select"
+                          (click)="$event.stopPropagation()"
+                          (change)="onRowSelected(row);"
+                          [checked]="selection.isSelected(row)">
+            </mat-checkbox>
+        </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+            <div *ngIf="isMediumScreen; else largeScreen">
+                <buttons [disableCompleteButton]='!enableCompleteButton'
+                         [disableDeleteButton]='!enableDeleteButton'
+                         [disableEditButton]='!enableEditButton'
+                         [tasks]='selection.selected'></buttons>
+            </div>  
+            <ng-template #largeScreen>Name</ng-template>
+        </mat-header-cell>
+        <mat-cell class="name-cell" *matCellDef="let task">
+            <div *ngIf="isMediumScreen; else largeScreen">
+                <b>Name:</b> {{task.name}}<br/>
+                <b>Priority:</b> {{task.priority}}<br/>
+                <b>Due Date:</b> {{format(task.dueDate)}}<br/>
+                <b *ngIf="task.isComplete">Date Completed:</b> {{task.isComplete ? format(task.dateCompleted): ''}}
+            </div>
+            <ng-template #largeScreen>
+                {{task.name}}
+            </ng-template>
+        </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="priority">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Priority</mat-header-cell>
+        <mat-cell *matCellDef="let task">{{task.priority}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="description">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Description</mat-header-cell>
+        <mat-cell class="description-cell" *matCellDef="let task">{{task.description}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="dueDate">
+        <mat-header-cell *matHeaderCellDef 
+                         mat-sort-header 
+                         [class.mat-column-dueDate-complete]="isComplete">Due Date</mat-header-cell>
+        <mat-cell class="duration-cell" 
+                  *matCellDef="let task"
+                  [class.mat-column-dueDate-complete]="isComplete">
+                {{format(task.dueDate)}}
+                <div *ngIf="!task.isComplete" class="duration-hover pl-2">
+                    <buttons [tasks]="[task]"></buttons>
+                </div>
+        </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="dateCompleted">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Date Completed</mat-header-cell>
+        <mat-cell class="duration-cell" *matCellDef="let task">
+            <span class="duration-default">{{format(task.dateCompleted)}}</span>
+            <div class="duration-hover pl-2">
+                <buttons hideCompleteButton='true'
+                         [tasks]="[task]"></buttons>
+            </div>
+        </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let task; columns: displayedColumns" class="pointer"
+        [class]="!isComplete && highlightRow(task)" [id]="task.id" [routerLink]="['/tasks', task.id]"></mat-row>
+</mat-table>
+<button mat-mini-fab color="primary" *ngIf="navIsFixed"
+    (click)="scrollToTop()"
+    class="scroll-to-top">
+    <fa-icon icon="angle-up"></fa-icon>
+    <div class="mat-button-focus-overlay"></div>
+    <div class="mat-button-ripple mat-ripple"></div>
+</button>

@@ -1,0 +1,13 @@
+syntax: glob
+.editorconfig
+.gitignore
+.gitkeep
+syntax: regexp
+coverage$
+doc$
+documentation$
+.git$
+node_modules$
+.nyc_output$
+out$
+target$

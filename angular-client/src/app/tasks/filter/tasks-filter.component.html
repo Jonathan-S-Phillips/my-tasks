@@ -1,0 +1,22 @@
+<div fxFlex="100%">
+    <mat-form-field class="marker-form-field-task-filter" fxFlex="100%">
+        <mat-label><fa-icon icon="search"></fa-icon> Search tasks</mat-label> 
+        <input matInput [matDatepicker]="taskFilterDatePicker" 
+                        (dateChange)="updateTaskFilter()"
+                        class="marker-input-task-filter"
+                        placeholder="Search tasks"
+                        #taskFilter>  
+        <mat-datepicker-toggle [for]="taskFilterDatePicker"
+                               matSuffix
+                               matTooltip="Select date"></mat-datepicker-toggle>
+        <button *ngIf="!isMediumScreen"
+                class="marker-button-clear-filter"
+                mat-icon-button 
+                matSuffix
+                matTooltip="Clear filter" 
+                (click)="clear()">
+            <fa-icon icon="times"></fa-icon>
+        </button>
+    </mat-form-field>
+    <mat-datepicker #taskFilterDatePicker></mat-datepicker>  
+</div>

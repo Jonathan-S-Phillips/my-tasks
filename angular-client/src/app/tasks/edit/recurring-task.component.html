@@ -1,0 +1,23 @@
+<div mat-dialog-title>
+    <span>Edit Recurring Item</span>
+</div>
+<mat-dialog-content>
+    <form [formGroup]="editRecurringTaskForm" class="container">
+        <mat-radio-group formControlName="updateAll" fxLayout="column" fxLayoutAlign="start">
+            <mat-radio-button class="marker-radio-button-single" value="single">Just this Task</mat-radio-button>
+            <mat-radio-button class="marker-radio-button-all" value="all">This and all remaining Tasks in sequence</mat-radio-button>
+        </mat-radio-group>
+    </form><br/>
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+    <button mat-raised-button (click)="cancel()" class="marker-action-cancel">Cancel</button>
+    <button mat-raised-button color="primary" 
+        class="marker-action-edit"
+        (click)="edit()"
+        [disabled]="!editRecurringTaskForm.valid">
+        <span>
+            <fa-icon icon="edit"></fa-icon> 
+            Edit
+        </span>
+    </button>
+</mat-dialog-actions>

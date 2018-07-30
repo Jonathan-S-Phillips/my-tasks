@@ -1,0 +1,29 @@
+{
+    "name": "mytasks",
+    "version": "0.0.1",
+    "description": "MyTasks Full Stack App",
+    "scripts": {
+        "doc": "npm run doc:client && npm run doc:server",
+        "doc:client": "cd ./angular-client && npm run doc",
+        "doc:server": "cd ./server && npm run doc",
+        "install:all": "npm install && npm run install:client && npm run install:server",
+        "install:client": "cd ./angular-client && npm install",
+        "install:server": "cd ./server && npm install",
+        "start": "concurrently --kill-others --raw \"npm run start --prefix ./server\" \"npm run start --prefix ./angular-client\"",
+        "start:dev": "concurrently --kill-others --raw \"npm run start:in-memory-db --prefix ./server\" \"npm run start --prefix ./angular-client\"",
+        "test": "npm run test:server && npm run test:client",
+        "test:coverage": "npm run test:server-coverage && npm run test:client-coverage",
+        "test:client": "cd ./angular-client && npm test",
+        "test:client-coverage": "cd ./angular-client && npm run test:coverage",
+        "test:server": "cd ./server && npm test",
+        "test:server-coverage": "cd ./server && npm run test:coverage",
+        "e2e": "concurrently --raw \"npm run start:in-memory-db --prefix ./server\" \"npm run e2e --prefix ./angular-client\"",
+        "e2e:headless": "concurrently --raw \"npm run start:in-memory-db --prefix ./server\" \"npm run e2e:headless --prefix ./angular-client\"",
+        "e2e:screenshots": "concurrently --raw \"npm run start:in-memory-db --prefix ./server\" \"npm run webdriver:edge --prefix ./angular-client\" \"cd ./angular-client && npm run e2e:screenshots\"",
+        "webdriver:update": "cd ./angular-client && npm run webdriver:update"
+    },
+    "devDependencies": {
+        "concurrently": "^3.5.1"
+    },
+    "dependencies": {}
+}
