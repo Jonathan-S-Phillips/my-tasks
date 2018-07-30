@@ -8,6 +8,9 @@
 **/.nyc_output
 **/target
 
+# database - ignore database directory (for now)
+/database
+
 # dependencies
 **/node_modules
 
