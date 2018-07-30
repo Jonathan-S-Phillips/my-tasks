@@ -2,8 +2,8 @@ import { browser, by, element, Key } from 'protractor';
 
 export class TaskForm {
 
-    getName() {
-        return element(by.css(".marker-input-name")).getAttribute('value');
+    async getName() {
+        return await element(by.css(".marker-input-name")).getAttribute('value');
     }
 
     async setName(value: string) {

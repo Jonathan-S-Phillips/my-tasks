@@ -14,8 +14,8 @@ export class Header {
         return element(by.css('.marker-button-show-search-bar'));
     }
 
-    hideSearchBar() {
-        this.getHideSearchBarButton().click();
+    async hideSearchBar() {
+        await this.getHideSearchBarButton().click();
         this.isSearchBarVisible = false;
     }
 
@@ -45,11 +45,10 @@ export class Header {
         }
     }
 
-    showSearchBar() {
+    async showSearchBar() {
         if(!this.isSearchBarVisible) {
-            this.getShowSearchBarButton().click();
+            await this.getShowSearchBarButton().click();
             this.isSearchBarVisible = true;
-            //return browser.driver.waitForAngular();
         }
     }
 }
