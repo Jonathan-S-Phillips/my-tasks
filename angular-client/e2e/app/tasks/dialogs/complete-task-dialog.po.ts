@@ -29,13 +29,13 @@ export class CompleteTaskDialog {
 
     async completeTask(dateCompleted: string) {
         await this.setDateCompleted(dateCompleted);
-        await this.clickCompleteButton();
+        return await this.clickCompleteButton();
     }
 
     async setDateCompleted(value: string) {
         let input = element(by.css('.marker-input-date-completed'));
         await input.clear();
         await input.sendKeys(value);
-        await input.sendKeys(Key.ENTER);
+        return await input.sendKeys(Key.ENTER);
     }
 }

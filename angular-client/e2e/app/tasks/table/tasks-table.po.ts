@@ -91,8 +91,8 @@ export class TasksTable {
     }
 
     async byExactText(value, column=1) {
-        return element.all(by.tagName('mat-row')).filter(function(row) {
-            return row.all(by.tagName('mat-cell')).get(column).getText().then(function(text) {
+        return element.all(by.tagName('mat-row')).filter(async(row) => {
+            return await row.all(by.tagName('mat-cell')).get(column).getText().then(function(text) {
                 return text.trim() == value;
             });
         }).first();

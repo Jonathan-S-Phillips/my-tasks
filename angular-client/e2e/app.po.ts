@@ -26,11 +26,11 @@ export class AppPage {
     this.pendingTasksTable = new PendingTasksTable();
   }
 
-  async completeTask(name: string, dateCompleted: string): Promise<void> {
+  async completeTask(name: string, dateCompleted: string): Promise<{}> {
     await this.showPendingTasks();
     await this.setTaskFilter(name);
     let completeTaskDialog: CompleteTaskDialog = await this.openCompleteTaskDialog();
-    await completeTaskDialog.completeTask(dateCompleted);
+    return await completeTaskDialog.completeTask(dateCompleted);
   }
 
   async createTask(name: string, description: string, dueDate: string): Promise<void> {
@@ -47,8 +47,7 @@ export class AppPage {
 
     let completeTaskDialog: CompleteTaskDialog = await editTaskDialog.openCompleteTaskDialog();
     await completeTaskDialog.completeTask(dateCompleted);
-    await this.showCompleteTasks();
-    return
+    return await this.showCompleteTasks();
   }
 
   async navigateTo(): Promise<any> {
@@ -72,22 +71,22 @@ export class AppPage {
   }
 
   async showCompleteTasks(): Promise<any> {
-    await browser.get('/tasks/complete');
+    return await browser.get('/tasks/complete');
     
-    let EC = protractor.ExpectedConditions;
-    await browser.wait(EC.and(
-        EC.urlContains('/tasks/complete'), 
-        EC.visibilityOf(this.completeTasksTable.tableElement))
-    );
+    // let EC = protractor.ExpectedConditions;
+    // return await browser.wait(EC.and(
+    //     EC.urlContains('/tasks/complete'), 
+    //     EC.visibilityOf(this.completeTasksTable.tableElement))
+    // );
   }
 
   async showPendingTasks(): Promise<any> {
-    await browser.get('/tasks');
+    return await browser.get('/tasks');
 
-    let EC = protractor.ExpectedConditions;
-    await browser.wait(EC.and(
-        EC.urlContains('/tasks'), 
-        EC.visibilityOf(this.pendingTasksTable.tableElement))
-    );
+    // let EC = protractor.ExpectedConditions;
+    // return await browser.wait(EC.and(
+    //     EC.urlContains('/tasks'), 
+    //     EC.visibilityOf(this.pendingTasksTable.tableElement))
+    // );
   }
 }

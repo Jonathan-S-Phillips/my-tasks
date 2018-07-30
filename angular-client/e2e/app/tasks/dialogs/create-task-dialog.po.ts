@@ -52,13 +52,13 @@ export class CreateTaskDialog {
                 writeScreenshot(img, 'create-button.png');
             });
         }
-        await el.click();
+        return await el.click();
     }
 
     async createTask(name: string, description: string, dueDate: string) {
         await this.setName(name);
         await this.setDescription(description);
         await this.setDueDate(dueDate)
-        await this.create();
+        return await this.create();
     }
 }

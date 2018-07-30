@@ -162,7 +162,6 @@ describe('MyTasks App', () => {
       // setup: select the Task in the table and then clear the Task filter
       await page.setTaskFilter('Complete Task');
       let editTaskDialog: EditTaskPage = await pendingTasksTable.openEditTaskDialogFromRow('Complete Task');
-      editTaskDialog.navigateTo();
       await browser.wait(
         protractor.ExpectedConditions.visibilityOf(element(by.css('.marker-edit-task-dialog')))
       );
@@ -172,18 +171,18 @@ describe('MyTasks App', () => {
       let completeTaskDialog = await editTaskDialog.openCompleteTaskDialog();
       await completeTaskDialog.setDateCompleted(date.format('MM/DD/YYYY'));
       await completeTaskDialog.clickCompleteButton();
-
-      // then: there should be one less Task in the pending Tasks table
-      await page.showPendingTasks();
-      expect(await pendingTasksTable.getTotal()).toEqual(initialPendingTasksTotal - 1);
-
-      // and: the complete Tasks table should have 1 new Task
       await page.showCompleteTasks();
+
+      // then: the complete Tasks table should have 1 new Task
       expect(await completeTasksTable.getTotal()).toEqual(initialCompleteTasksTotal + 1);
       
       // and: the completed Task should be found in the Table
       await page.setTaskFilter('Complete Task');
       expect(await completeTasksTable.getTotal()).toBeGreaterThanOrEqual(1);
+
+      // and: there should be one less Task in the pending Tasks table
+      await page.showPendingTasks();
+      expect(await pendingTasksTable.getTotal()).toEqual(initialPendingTasksTotal - 1);
     });
   });
 
