@@ -136,11 +136,12 @@ If you try to run the above command without setting up the Edge browser with pro
 
 ## Documentation
 
-Documentation for the client and web API are included with the source in the /doc directory. Each documentation is included in its own directory (angular-client for the client; server for the API). Simply browse to the directory of the portion of the app you want to view the documentation for and open the main index.html file in your favotire browser. 
+Documentation for the client code and web API are included and available at the below URLs.
 
-Documentation for the client was built using [Compodoc](https://compodoc.app/) and documentation for the web API was built using [apiDoc](http://apidocjs.com/). TODO setup and add link to github pages version of docs.
+* [Angular Client](https://jonathan-s-phillips.github.io/my-tasks/angular-client/)
+* [API](https://jonathan-s-phillips.github.io/my-tasks/server/)
 
-You can run the following command to generate the documents for both the client and web API, which will update the /doc directory with the latest changes from the source .
+Documentation for the client was built using [Compodoc](https://compodoc.app/) and documentation for the web API was built using [apiDoc](http://apidocjs.com/). Scripts are included to generate the documentation locally as well. You can run the following command which will update the docs directory with the latest changes from the source.
 
 ```
 npm run doc
