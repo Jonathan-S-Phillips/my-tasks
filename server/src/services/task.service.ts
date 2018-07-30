@@ -340,7 +340,7 @@ export class TaskService {
         newTask.dueDate = date.format('YYYY-MM-DD');
         newTask.endsAfter -= i;
         newTask = await this.db().save(newTask);
-        currentTask.nextId = newTask.id.toString();
+        currentTask.nextId = newTask.id;
         await this.db().save(currentTask);
         return newTask;
     }
