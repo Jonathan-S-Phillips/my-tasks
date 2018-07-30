@@ -21,18 +21,18 @@ Server.init(options).then(app => {
     app.listen(PORT, async() => {
 
         // Load some data into the db if running the in-memory-db
-        if(DB === 'in-memory-db') {
-            console.log('adding seed data...');
+        if(options.connectionName === 'in-memory-db') {
+            console.log('Server: Adding seed data...');
             for(let i: number = 0; i < TASKS.length; i++) {
                 let task:Task = await TaskService.save(TASKS[i]);
                 if(TASKS[i].dateCompleted != null) {
                     task = await TaskService.complete(task.id, TASKS[i]);
                 }
             }
-            console.log('seed data added successfully');
+            console.log('Server: Seed data added successfully');
         }
 
-        console.log(`server using database connection: ${DB}`);
-        console.log(`server started on port ${PORT}`);
+        console.log(`Server: Using database connection: ${DB}`);
+        console.log(`Server: Started on port ${PORT}`);
     });
 });

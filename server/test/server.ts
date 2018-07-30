@@ -16,7 +16,8 @@ export function getTestApp(): Promise<SuperTest<Test>> {
             return supertest(app);
         })
         .catch(exception => {
-            console.log('Error starting app');
+            console.log('Server(test): Error starting test app');
+            console.log('Server(test): ' + exception);
             return null;
         });
 }
