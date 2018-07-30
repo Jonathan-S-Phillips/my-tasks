@@ -55,6 +55,8 @@ describe('TasksFilterComponent', () => {
         taskFilterElement = fixture.debugElement.nativeElement.querySelector('.marker-input-task-filter');
         taskFilterInput = new InputFieldTestHelper(fixture, taskFilterElement);
 
+        // set screen to large screen
+        utilsService.setIsMediumScreen(false);
         fixture.detectChanges();
     }));
 

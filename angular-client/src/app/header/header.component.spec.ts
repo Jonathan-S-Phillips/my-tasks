@@ -81,6 +81,8 @@ describe('HeaderComponent', () => {
   describe('Large screens', () => {
 
     beforeEach(async(() => {
+      // set screen to large screen
+      utilsService.setIsMediumScreen(false);
       fixture.detectChanges();
     }));
 
