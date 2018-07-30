@@ -20,29 +20,29 @@ export class Header {
     }
 
     async setTaskFilter(value: string) {
-            let input = element(by.css('.marker-input-task-filter'));
-            await browser.wait(
-                protractor.ExpectedConditions.visibilityOf(input)
-            );
-            await input.clear();
+        let input = element(by.css('.marker-input-task-filter'));
+        await browser.wait(
+            protractor.ExpectedConditions.visibilityOf(input)
+        );
+        await input.clear();
 
-            if(browser.params.screenshot) {
-                await input.takeScreenshot().then((img) => {
-                    writeScreenshot(img, 'tasks-filter.png');
-                });
+        if(browser.params.screenshot) {
+            await input.takeScreenshot().then((img) => {
+                writeScreenshot(img, 'tasks-filter.png');
+            });
 
-                await element(by.tagName('mat-datepicker-toggle')).takeScreenshot().then((img) => {
-                    writeScreenshot(img, 'datepicker-button.png');
-                });
-            }
+            await element(by.tagName('mat-datepicker-toggle')).takeScreenshot().then((img) => {
+                writeScreenshot(img, 'datepicker-button.png');
+            });
+        }
 
-            await input.sendKeys(value);
+        await input.sendKeys(value);
 
-            let insertedValue: string = await input.getAttribute('value');
-            if(insertedValue !== value) {
-                console.log('reloading ' + value)
-                await this.setTaskFilter(value);
-            }
+        let insertedValue: string = await input.getAttribute('value');
+        if(insertedValue !== value) {
+            console.log('reloading ' + value)
+            await this.setTaskFilter(value);
+        }
     }
 
     showSearchBar() {
