@@ -8,20 +8,20 @@ The application is a full stack [TypeScript](https://www.typescriptlang.org/) ap
 
 ## Table of Contents
 
-* [Getting Started](##getting-started)
-* [Prerequisites](##prerequisites)
-* [Build and Run](##build-and-run)
-    * [Docker Compose Setup](##docker-compose-setup)
-    * [Node Setup](##node-setup)
-        * [Development Mode](##development-mode)
-* [Accessing the App](##accessing-the-app)
-* [Running the Tests](##running-the-tests)
-    * [Unit Tests](##unit-tests)
-    * [e2e Tests](##e2e-tests)
-* [Documentation](##documentation)
-* [Built With](##built-with)
-* [Authors](##authors)
-* [Acknowledgements](##acknowledgements)
+* [Getting Started](#getting-started)
+* [Prerequisites](#prerequisites)
+* [Build and Run](#build-and-run)
+    * [Docker Compose Setup](#docker-compose-setup)
+    * [Node Setup](#node-setup)
+        * [Development Mode](#development-mode)
+* [Accessing the App](#accessing-the-app)
+* [Running the Tests](#running-the-tests)
+    * [Unit Tests](#unit-tests)
+    * [e2e Tests](#e2e-tests)
+* [Documentation](#documentation)
+* [Built With](#built-with)
+* [Authors](#authors)
+* [Acknowledgements](#acknowledgements)
 
 ## Getting Started
 
@@ -54,8 +54,8 @@ The app was built on Windows using the following setup:
 
 Once you have successfully cloned the repository you can build and run the MyTasks application one of the following two ways.
 
-1. [Docker Compose Setup](##docker-compose-setup); or 
-2. [Node Setup](##node-setup). 
+1. [Docker Compose Setup](#docker-compose-setup); or 
+2. [Node Setup](#node-setup). 
 
 #### Docker Compose Setup
 
@@ -65,7 +65,7 @@ If you have Docker Compose configured for your system, then you can use the foll
 docker-compose up --build
 ```
 
-Thats it! The above command will initialize the full stack application with an empty database. The next time you start the app you may omit the "--build" option (unless you have made changes or update the node_modules). Any Tasks created and updated will be persisted if you restart the containers. Once the application is up and running you may access the client through a web browser at http://localhost:4200. More details on accessing the application and the API server are available [here](##accessing-the-app). 
+Thats it! The above command will initialize the full stack application with an empty database. The next time you start the app you may omit the "--build" option (unless you have made changes or update the node_modules). Any Tasks created and updated will be persisted if you restart the containers. Once the application is up and running you may access the client through a web browser at http://localhost:4200. More details on accessing the application and the API server are available [here](#accessing-the-app). 
 
 It may take some time to setup and configure the containers depending on your connection speed. You may also see some warnings about npm packages, but they will not prevent the app from starting.
 
@@ -98,7 +98,7 @@ Once the dependencies are installed you can use the following command (again fro
 npm start
 ```
 
-Once the application is up and running you may access the client through a web browser at http://localhost:4200. More details on accessing the application and the API server are available [here](##accessing-the-app).
+Once the application is up and running you may access the client through a web browser at http://localhost:4200. More details on accessing the application and the API server are available [here](#accessing-the-app).
 
 ##### Development Mode
 
