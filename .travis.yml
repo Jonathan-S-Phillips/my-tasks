@@ -4,6 +4,11 @@ node_js:
 sudo: required
 addons:
   chrome: stable
-script:
+env:
+  - NPM_SCRIPT=server-coveralls
+  - NPM_SCRIPT=client-coveralls
   - "npm run install:all"
-  - "npm run test:coveralls"
+script:
+  - "npm run test:$NPM_SCRIPT"
+notifications:
+  webhooks: https://coveralls.io/webhook?repo_token=COVERALLS_REPO_TOKEN

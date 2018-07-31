@@ -8,6 +8,7 @@
     "doc": "./node_modules/.bin/compodoc -p src/tsconfig.app.json -d ../docs/angular-client",
     "test": "ng test --browsers Chrome",
     "test:coverage": "ng test --browsers ChromeHeadless --code-coverage --watch=false",
+    "test:coveralls": "npm run test:coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "e2e:debug": "node --inspect-brk ./node_modules/protractor/bin/protractor ./e2e/protractor.conf.js",

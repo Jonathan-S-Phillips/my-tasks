@@ -16,6 +16,7 @@
         "test:coveralls": "npm run test:server-coveralls",
         "test:client": "cd ./angular-client && npm test",
         "test:client-coverage": "cd ./angular-client && npm run test:coverage",
+        "test:client-coveralls": "cd ./angular-client && npm run test:coveralls",
         "test:server": "cd ./server && npm test",
         "test:server-coverage": "cd ./server && npm run test:coverage",
         "test:server-coveralls": "cd ./server && npm run test:coveralls",
