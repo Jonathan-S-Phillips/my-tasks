@@ -16,7 +16,7 @@
         "test:client": "cd ./angular-client && npm test",
         "test:client-coverage": "cd ./angular-client && npm run test:coverage",
         "test:server": "cd ./server && npm test",
-        "test:server-coverage": "cd ./server && npm run test:coverage",
+        "test:server-coverage": "cd ./server && npm run test:coveralls",
         "e2e": "concurrently --raw \"npm run start:in-memory-db --prefix ./server\" \"npm run e2e --prefix ./angular-client\"",
         "e2e:headless": "concurrently --raw \"npm run start:in-memory-db --prefix ./server\" \"npm run e2e:headless --prefix ./angular-client\"",
         "e2e:screenshots": "concurrently --raw \"npm run start:in-memory-db --prefix ./server\" \"npm run webdriver:edge --prefix ./angular-client\" \"cd ./angular-client && npm run e2e:screenshots\"",
