@@ -1,10 +1,13 @@
 # MyTasks
 
 [![Build Status](https://travis-ci.org/Jonathan-S-Phillips/my-tasks.svg?branch=master)](https://travis-ci.org/Jonathan-S-Phillips/my-tasks)
+[![Coverage Status](https://coveralls.io/repos/github/Jonathan-S-Phillips/my-tasks/badge.svg?branch=master)](https://coveralls.io/github/Jonathan-S-Phillips/my-tasks?branch=master)
 
 MyTasks is a simple application meant to create and manage Tasks. Tasks are displayed in tables, separated by state (pending or complete), and can be filtered by name, description, priority, due date, and date completed (if complete). Pending tasks also have keyword filters and visual indicators for tasks over due (tasks with due date before todays date), tasks due today, and tasks due tomorrow. Tasks have a very simple repeating capability; they can repeat daily, weekly, monthly, or yearly.
 
 The application is a full stack [TypeScript](https://www.typescriptlang.org/) app divided into an [Angular](https://angular.io/) client, [Express](https://github.com/expressjs/express) API server, and [SQLite](https://github.com/mapbox/node-sqlite3) database. See the [Built With](##built-with) section for more details on the client, server, and database. 
+
+**Note on coverage: that is just server side coverage currently. I have not configured the angular-client with coveralls yet.
 
 ## Table of Contents
 
