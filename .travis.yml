@@ -6,6 +6,4 @@ addons:
   chrome: stable
 script:
   - "npm run install:all"
-  - "npm run test:coverage"
-# Send coverage data to Coveralls
-after_script: "cat ./server/coverage/lcov.info | ./server/node_modules/coveralls/bin/coveralls.js"
+  - "npm run test:coveralls"
