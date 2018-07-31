@@ -7,7 +7,7 @@
         "start": "ts-node src/server.ts --db sqlite",
         "start:in-memory-db": "ts-node src/server.ts --db in-memory-db",
         "test": "mocha --require ts-node/register src/**/**.spec.ts",
-        "test:coverage": "mocha --require ts-node/register src/**/**.spec.ts && nyc report --reporter=text-lcov"
+        "test:coverage": "nyc mocha --require ts-node/register src/**/**.spec.ts && nyc report --reporter=text-lcov"
     },
     "dependencies": {
         "@angular/core": "^6.0.3",
