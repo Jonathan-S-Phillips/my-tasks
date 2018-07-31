@@ -5,7 +5,7 @@
 
 MyTasks is a simple application meant to create and manage Tasks. Tasks are displayed in tables, separated by state (pending or complete), and can be filtered by name, description, priority, due date, and date completed (if complete). Pending tasks also have keyword filters and visual indicators for tasks over due (tasks with due date before todays date), tasks due today, and tasks due tomorrow. Tasks have a very simple repeating capability; they can repeat daily, weekly, monthly, or yearly.
 
-The application is a full stack [TypeScript](https://www.typescriptlang.org/) app divided into an [Angular](https://angular.io/) client, [Express](https://github.com/expressjs/express) API server, and [SQLite](https://github.com/mapbox/node-sqlite3) database. See the [Built With](#built-with) section for more details on the client, server, and database. 
+The application is a full stack [TypeScript](https://www.typescriptlang.org/) app divided into an [Angular](https://angular.io/) client, [Express](https://github.com/expressjs/express) API server, and [SQLite](https://github.com/mapbox/node-sqlite3) database. The UI is designed to be responsive, and meant to work across a variety of devices. Smaller screen sizes have only been emulated through chrome devtools and have not been fully tested though. See the [Built With](#built-with) section for more details on the client, server, and database. 
 
 ## Table of Contents
 
@@ -56,7 +56,7 @@ The app was built on Windows using the following setup:
 Once you have successfully cloned the repository you can build and run the MyTasks application one of the following two ways.
 
 1. [Docker Compose Setup](#docker-compose-setup); or 
-2. [Node Setup](#node-setup). 
+2. [Node Setup](#node-setup) 
 
 #### Docker Compose Setup
 
@@ -82,7 +82,7 @@ docker run --rm --privileged mytasks_server hwclock -s
 If you have Node configured for your system, then you can use the npm scripts included at the root directory to build and run the application. You can build each part of the app separately, but I have included scripts at the root to run both the server and client together. The first step to build and run the application directly in your environment is to install dependencies. You can use the following command from the root of the application to install all required dependencies for both the client and server.
 
 ```
-npm run install-all
+npm run install:all
 ```
 
 If you are running npm version 6, then you will see a few vulnerabilities from the dependencies for the client. You can run the following command from the base of the client app to fix one of the vulnerabilities.
@@ -178,13 +178,13 @@ npm run doc
 
 ## Built With
 
-The client is built using Angular 6, and leverages [Angular Material 2](https://material.angular.io/) for most of the UI components. The UI is designed to be responsive, and meant to work across a variety of devices. Breakpoints from the angular CDK layout (Handset and Small) are used to determine what features are available on the screen. Smaller screen sizes have only been emulated through chrome devtools and have not been fully tested though. 
+The client is built using Angular 6, and leverages [Angular Material 2](https://material.angular.io/) for most of the UI components. The UI is designed to be responsive, and meant to work across a variety of devices. Breakpoints from the angular CDK layout (Handset and Small) are used to determine what features are available on the screen. Some of the enhanced functionality is limited on smaller devices, due to the smaller screen space and lack of mouse input. Additionally, smaller screen sizes have only been emulated through chrome devtools and have not been fully tested. 
 
 The Express API server utilizes the [TypeORM](https://github.com/typeorm/typeorm) package to handle storing data in a SQLite database. The database only contains a single table for Tasks. To implement the repeating capability an optional one-to-one relationship is used to represent the relation from one Task to the next in the sequence, through the nextId property. A simple Entity Relationship (ER) diagram is included below
 
 ![Tasks ER Diagram](docs/images/tasks-er-diagram.png)
 
-Below is a complete list of the technologies used to build the the app and links to their home or github pages.
+Below is a list of the main technologies and dependencies used to build the the app and links to their home or github pages.
 
 * [TypeScript](https://www.typescriptlang.org/)
 * [Angular](https://angular.io/) - UI Components
@@ -195,6 +195,8 @@ Below is a complete list of the technologies used to build the the app and links
 * [SQLite](https://github.com/mapbox/node-sqlite3) - DB driver
 * [Compodoc](https://compodoc.app/) - Angular project documentation
 * [apiDoc](http://apidocjs.com/) - API documentation
+
+Further details about the technologies and dependencies used can be found by examining the dependencies in the package.json files located in both the angular-client and server directories. Additionally you may review a handy online version of the depdendencies included in the angular-client thanks to Compodoc [here](https://jonathan-s-phillips.github.io/my-tasks/angular-client/dependencies.html).
 
 ## Authors
 

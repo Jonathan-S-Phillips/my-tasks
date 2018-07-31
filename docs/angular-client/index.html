@@ -416,10 +416,16 @@
                             id="xs-components-links"
                         >
                             <li class="link">
-                                <a href="components/TasksFilterComponent.html" data-type="entity-link">TasksFilterComponent</a>
+                                <a href="components/CompleteTaskComponent.html" data-type="entity-link">CompleteTaskComponent</a>
                             </li>
                             <li class="link">
-                                <a href="components/TasksTableComponent.html" data-type="entity-link">TasksTableComponent</a>
+                                <a href="components/ConfirmDeleteTaskComponent.html" data-type="entity-link">ConfirmDeleteTaskComponent</a>
+                            </li>
+                            <li class="link">
+                                <a href="components/CreateTaskComponent.html" data-type="entity-link">CreateTaskComponent</a>
+                            </li>
+                            <li class="link">
+                                <a href="components/TasksFilterComponent.html" data-type="entity-link">TasksFilterComponent</a>
                             </li>
                     </ul>
                 </li>
@@ -943,10 +949,16 @@
                             id="components-links"
 >
                             <li class="link">
-                                <a href="components/TasksFilterComponent.html" data-type="entity-link">TasksFilterComponent</a>
+                                <a href="components/CompleteTaskComponent.html" data-type="entity-link">CompleteTaskComponent</a>
                             </li>
                             <li class="link">
-                                <a href="components/TasksTableComponent.html" data-type="entity-link">TasksTableComponent</a>
+                                <a href="components/ConfirmDeleteTaskComponent.html" data-type="entity-link">ConfirmDeleteTaskComponent</a>
+                            </li>
+                            <li class="link">
+                                <a href="components/CreateTaskComponent.html" data-type="entity-link">CreateTaskComponent</a>
+                            </li>
+                            <li class="link">
+                                <a href="components/TasksFilterComponent.html" data-type="entity-link">TasksFilterComponent</a>
                             </li>
                     </ul>
                 </li>
@@ -1076,7 +1088,7 @@
 <p><a href="https://travis-ci.org/Jonathan-S-Phillips/my-tasks"><img src="https://travis-ci.org/Jonathan-S-Phillips/my-tasks.svg?branch=master" alt="Build Status" class="img-responsive"></a>
 <a href="https://coveralls.io/github/Jonathan-S-Phillips/my-tasks?branch=master"><img src="https://coveralls.io/repos/github/Jonathan-S-Phillips/my-tasks/badge.svg?branch=master" alt="Coverage Status" class="img-responsive"></a></p>
 <p>MyTasks is a simple application meant to create and manage Tasks. Tasks are displayed in tables, separated by state (pending or complete), and can be filtered by name, description, priority, due date, and date completed (if complete). Pending tasks also have keyword filters and visual indicators for tasks over due (tasks with due date before todays date), tasks due today, and tasks due tomorrow. Tasks have a very simple repeating capability; they can repeat daily, weekly, monthly, or yearly.</p>
-<p>The application is a full stack <a href="https://www.typescriptlang.org/">TypeScript</a> app divided into an <a href="https://angular.io/">Angular</a> client, <a href="https://github.com/expressjs/express">Express</a> API server, and <a href="https://github.com/mapbox/node-sqlite3">SQLite</a> database. See the <a href="#built-with">Built With</a> section for more details on the client, server, and database. </p>
+<p>The application is a full stack <a href="https://www.typescriptlang.org/">TypeScript</a> app divided into an <a href="https://angular.io/">Angular</a> client, <a href="https://github.com/expressjs/express">Express</a> API server, and <a href="https://github.com/mapbox/node-sqlite3">SQLite</a> database. The UI is designed to be responsive, and meant to work across a variety of devices. Smaller screen sizes have only been emulated through chrome devtools and have not been fully tested though. See the <a href="#built-with">Built With</a> section for more details on the client, server, and database. </p>
 <h2 id="table-of-contents">Table of Contents</h2>
 <ul>
 <li><a href="#getting-started">Getting Started</a></li>
@@ -1124,7 +1136,7 @@
 <p>Once you have successfully cloned the repository you can build and run the MyTasks application one of the following two ways.</p>
 <ol>
 <li><a href="#docker-compose-setup">Docker Compose Setup</a>; or </li>
-<li><a href="#node-setup">Node Setup</a>. </li>
+<li><a href="#node-setup">Node Setup</a> </li>
 </ol>
 <h4 id="docker-compose-setup">Docker Compose Setup</h4>
 <p>If you have Docker Compose configured for your system, then you can use the following command from the root or base directory of the application to build and run both the server and client containers for the app.</p>
@@ -1134,7 +1146,7 @@
 <div><pre class="line-numbers"><code class="language-none">docker run --rm --privileged mytasks_angular-client hwclock -s
 docker run --rm --privileged mytasks_server hwclock -s</code></pre></div><h4 id="node-setup">Node Setup</h4>
 <p>If you have Node configured for your system, then you can use the npm scripts included at the root directory to build and run the application. You can build each part of the app separately, but I have included scripts at the root to run both the server and client together. The first step to build and run the application directly in your environment is to install dependencies. You can use the following command from the root of the application to install all required dependencies for both the client and server.</p>
-<div><pre class="line-numbers"><code class="language-none">npm run install-all</code></pre></div><p>If you are running npm version 6, then you will see a few vulnerabilities from the dependencies for the client. You can run the following command from the base of the client app to fix one of the vulnerabilities.</p>
+<div><pre class="line-numbers"><code class="language-none">npm run install:all</code></pre></div><p>If you are running npm version 6, then you will see a few vulnerabilities from the dependencies for the client. You can run the following command from the base of the client app to fix one of the vulnerabilities.</p>
 <div><pre class="line-numbers"><code class="language-none">npm audit fix</code></pre></div><p>The remaining fixes include breaking changes, which have not been tested.</p>
 <p>Once the dependencies are installed you can use the following command (again from the root of the application) which will build and run both the client and server together.</p>
 <div><pre class="line-numbers"><code class="language-none">npm start</code></pre></div><p>Once the application is up and running you may access the client through a web browser at <a href="http://localhost:4200">http://localhost:4200</a>. More details on accessing the application and the API server are available <a href="#accessing-the-app">here</a>.</p>
@@ -1163,10 +1175,10 @@ docker run --rm --privileged mytasks_server hwclock -s</code></pre></div><h4 id=
 </ul>
 <p>Documentation for the client was built using <a href="https://compodoc.app/">Compodoc</a> and documentation for the web API was built using <a href="http://apidocjs.com/">apiDoc</a>. Scripts are included to generate the documentation locally as well. You can run the following command which will update the docs directory with the latest changes from the source.</p>
 <div><pre class="line-numbers"><code class="language-none">npm run doc</code></pre></div><h2 id="built-with">Built With</h2>
-<p>The client is built using Angular 6, and leverages <a href="https://material.angular.io/">Angular Material 2</a> for most of the UI components. The UI is designed to be responsive, and meant to work across a variety of devices. Breakpoints from the angular CDK layout (Handset and Small) are used to determine what features are available on the screen. Smaller screen sizes have only been emulated through chrome devtools and have not been fully tested though. </p>
+<p>The client is built using Angular 6, and leverages <a href="https://material.angular.io/">Angular Material 2</a> for most of the UI components. The UI is designed to be responsive, and meant to work across a variety of devices. Breakpoints from the angular CDK layout (Handset and Small) are used to determine what features are available on the screen. Some of the enhanced functionality is limited on smaller devices, due to the smaller screen space and lack of mouse input. Additionally, smaller screen sizes have only been emulated through chrome devtools and have not been fully tested. </p>
 <p>The Express API server utilizes the <a href="https://github.com/typeorm/typeorm">TypeORM</a> package to handle storing data in a SQLite database. The database only contains a single table for Tasks. To implement the repeating capability an optional one-to-one relationship is used to represent the relation from one Task to the next in the sequence, through the nextId property. A simple Entity Relationship (ER) diagram is included below</p>
 <p><img src="docs/images/tasks-er-diagram.png" alt="Tasks ER Diagram" class="img-responsive"></p>
-<p>Below is a complete list of the technologies used to build the the app and links to their home or github pages.</p>
+<p>Below is a list of the main technologies and dependencies used to build the the app and links to their home or github pages.</p>
 <ul>
 <li><a href="https://www.typescriptlang.org/">TypeScript</a></li>
 <li><a href="https://angular.io/">Angular</a> - UI Components</li>
@@ -1178,6 +1190,7 @@ docker run --rm --privileged mytasks_server hwclock -s</code></pre></div><h4 id=
 <li><a href="https://compodoc.app/">Compodoc</a> - Angular project documentation</li>
 <li><a href="http://apidocjs.com/">apiDoc</a> - API documentation</li>
 </ul>
+<p>Further details about the technologies and dependencies used can be found by examining the dependencies in the package.json files located in both the angular-client and server directories. Additionally you may review a handy online version of the depdendencies included in the angular-client thanks to Compodoc <a href="https://jonathan-s-phillips.github.io/my-tasks/angular-client/dependencies.html">here</a>.</p>
 <h2 id="authors">Authors</h2>
 <ul>
 <li><strong>[Jonathan Phillips]</strong> - (<a href="https://github.com/Jonathan-S-Phillips">https://github.com/Jonathan-S-Phillips</a>)</li>
