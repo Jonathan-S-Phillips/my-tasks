@@ -1172,6 +1172,7 @@ docker run --rm --privileged mytasks_server hwclock -s</code></pre></div><h4 id=
 <div><pre class="line-numbers"><code class="language-none">npm run doc</code></pre></div><h2 id="built-with">Built With</h2>
 <p>The client is built using Angular 6, and leverages <a href="https://material.angular.io/">Angular Material 2</a> for most of the UI components. The UI is designed to be responsive, and meant to work across a variety of devices. Breakpoints from the angular CDK layout (Handset and Small) are used to determine what features are available on the screen. Smaller screen sizes have only been emulated through chrome devtools and have not been fully tested though. </p>
 <p>The Express API server utilizes the <a href="https://github.com/typeorm/typeorm">TypeORM</a> package to handle storing data in a SQLite database. The database only contains a single table for Tasks. To implement the repeating capability an optional one-to-one relationship is used to represent the relation from one Task to the next in the sequence, through the nextId property. A simple Entity Relationship (ER) diagram is included below</p>
+<p><img src="https://github.com/Jonathan-S-Phillips/my-tasks/raw/master/docs/images/tasks-er-diagram.png" alt="Tasks ER Diagram" class="img-responsive"></p>
 <p>Below is a complete list of the technologies used to build the the app and links to their home or github pages.</p>
 <ul>
 <li><a href="https://www.typescriptlang.org/">TypeScript</a></li>
