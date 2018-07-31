@@ -416,13 +416,10 @@
                             id="xs-components-links"
                         >
                             <li class="link">
-                                <a href="components/CompleteTaskComponent.html" data-type="entity-link">CompleteTaskComponent</a>
-                            </li>
-                            <li class="link">
-                                <a href="components/TaskFormComponent.html" data-type="entity-link">TaskFormComponent</a>
-                            </li>
-                            <li class="link">
                                 <a href="components/TasksFilterComponent.html" data-type="entity-link">TasksFilterComponent</a>
+                            </li>
+                            <li class="link">
+                                <a href="components/TasksTableComponent.html" data-type="entity-link">TasksTableComponent</a>
                             </li>
                     </ul>
                 </li>
@@ -946,13 +943,10 @@
                             id="components-links"
 >
                             <li class="link">
-                                <a href="components/CompleteTaskComponent.html" data-type="entity-link">CompleteTaskComponent</a>
-                            </li>
-                            <li class="link">
-                                <a href="components/TaskFormComponent.html" data-type="entity-link">TaskFormComponent</a>
-                            </li>
-                            <li class="link">
                                 <a href="components/TasksFilterComponent.html" data-type="entity-link">TasksFilterComponent</a>
+                            </li>
+                            <li class="link">
+                                <a href="components/TasksTableComponent.html" data-type="entity-link">TasksTableComponent</a>
                             </li>
                     </ul>
                 </li>
@@ -1082,7 +1076,7 @@
 <p><a href="https://travis-ci.org/Jonathan-S-Phillips/my-tasks"><img src="https://travis-ci.org/Jonathan-S-Phillips/my-tasks.svg?branch=master" alt="Build Status" class="img-responsive"></a>
 <a href="https://coveralls.io/github/Jonathan-S-Phillips/my-tasks?branch=master"><img src="https://coveralls.io/repos/github/Jonathan-S-Phillips/my-tasks/badge.svg?branch=master" alt="Coverage Status" class="img-responsive"></a></p>
 <p>MyTasks is a simple application meant to create and manage Tasks. Tasks are displayed in tables, separated by state (pending or complete), and can be filtered by name, description, priority, due date, and date completed (if complete). Pending tasks also have keyword filters and visual indicators for tasks over due (tasks with due date before todays date), tasks due today, and tasks due tomorrow. Tasks have a very simple repeating capability; they can repeat daily, weekly, monthly, or yearly.</p>
-<p>The application is a full stack <a href="https://www.typescriptlang.org/">TypeScript</a> app divided into an <a href="https://angular.io/">Angular</a> client, <a href="https://github.com/expressjs/express">Express</a> API server, and <a href="https://github.com/mapbox/node-sqlite3">SQLite</a> database. See the <a href="##built-with">Built With</a> section for more details on the client, server, and database. </p>
+<p>The application is a full stack <a href="https://www.typescriptlang.org/">TypeScript</a> app divided into an <a href="https://angular.io/">Angular</a> client, <a href="https://github.com/expressjs/express">Express</a> API server, and <a href="https://github.com/mapbox/node-sqlite3">SQLite</a> database. See the <a href="#built-with">Built With</a> section for more details on the client, server, and database. </p>
 <h2 id="table-of-contents">Table of Contents</h2>
 <ul>
 <li><a href="#getting-started">Getting Started</a></li>
@@ -1155,7 +1149,6 @@ docker run --rm --privileged mytasks_server hwclock -s</code></pre></div><h4 id=
 <p>The unit tests for both the client and server can be run using the following command from the root of the application.</p>
 <div><pre class="line-numbers"><code class="language-none">npm test</code></pre></div><p>The server tests should run first followed by the client tests. A script is also included to generate coverage reports with the unit tests. Running the following command will run the unit tests and generate coverage reports as well.</p>
 <div><pre class="line-numbers"><code class="language-none">npm run test:coverage</code></pre></div><p>Separate coverage reports are generated for the client and the server using Istanbul Code Coverage. A coverage directory is added to both the client and server directories and the reports are added there. To view the reports browse to either the client or server, select the corresponding coverage directory, and open the index.html file found using your favorite browser.</p>
-<p>**Note on coveralls coverage badge: that is just server side coverage currently. I have not configured the angular-client with coveralls yet.</p>
 <h3 id="e2e-tests">e2e Tests</h3>
 <p>The e2e tests can be run using the following command from the root of the application.</p>
 <div><pre class="line-numbers"><code class="language-none">npm run e2e</code></pre></div><p>This command will initialize the server and client, and execute the e2e tests against the app using the chrome browser. You may also run the e2e tests without a browser using the following command.</p>
@@ -1165,14 +1158,14 @@ docker run --rm --privileged mytasks_server hwclock -s</code></pre></div><h4 id=
 <h2 id="documentation">Documentation</h2>
 <p>Documentation for the client code and web API are included and available at the below URLs.</p>
 <ul>
-<li><a href="https://jonathan-s-phillips.github.io/my-tasks/angular-client/">Angular Client</a></li>
+<li><a href="https://jonathan-s-phillips.github.io/my-tasks/angular-client/overview.html">Angular Client</a></li>
 <li><a href="https://jonathan-s-phillips.github.io/my-tasks/server/">API</a></li>
 </ul>
 <p>Documentation for the client was built using <a href="https://compodoc.app/">Compodoc</a> and documentation for the web API was built using <a href="http://apidocjs.com/">apiDoc</a>. Scripts are included to generate the documentation locally as well. You can run the following command which will update the docs directory with the latest changes from the source.</p>
 <div><pre class="line-numbers"><code class="language-none">npm run doc</code></pre></div><h2 id="built-with">Built With</h2>
 <p>The client is built using Angular 6, and leverages <a href="https://material.angular.io/">Angular Material 2</a> for most of the UI components. The UI is designed to be responsive, and meant to work across a variety of devices. Breakpoints from the angular CDK layout (Handset and Small) are used to determine what features are available on the screen. Smaller screen sizes have only been emulated through chrome devtools and have not been fully tested though. </p>
 <p>The Express API server utilizes the <a href="https://github.com/typeorm/typeorm">TypeORM</a> package to handle storing data in a SQLite database. The database only contains a single table for Tasks. To implement the repeating capability an optional one-to-one relationship is used to represent the relation from one Task to the next in the sequence, through the nextId property. A simple Entity Relationship (ER) diagram is included below</p>
-<p><img src="https://github.com/Jonathan-S-Phillips/my-tasks/raw/master/docs/images/tasks-er-diagram.png" alt="Tasks ER Diagram" class="img-responsive"></p>
+<p><img src="docs/images/tasks-er-diagram.png" alt="Tasks ER Diagram" class="img-responsive"></p>
 <p>Below is a complete list of the technologies used to build the the app and links to their home or github pages.</p>
 <ul>
 <li><a href="https://www.typescriptlang.org/">TypeScript</a></li>

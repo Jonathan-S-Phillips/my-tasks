@@ -36,13 +36,13 @@ define({ "api": [
             "group": "Error 404",
             "optional": false,
             "field": "error",
-            "description": "<p>The error that was thrown.</p>"
+            "description": ""
           },
           {
             "group": "Error 404",
             "optional": false,
             "field": "error.message",
-            "description": "<p>The error message.</p>"
+            "description": "<p>&quot;NotFound&quot; when the id(s) included in request are not found.</p>"
           }
         ]
       },
@@ -122,13 +122,13 @@ define({ "api": [
             "group": "Error 404",
             "optional": false,
             "field": "error",
-            "description": "<p>The error that was thrown.</p>"
+            "description": ""
           },
           {
             "group": "Error 404",
             "optional": false,
             "field": "error.message",
-            "description": "<p>The error message.</p>"
+            "description": "<p>&quot;NotFound&quot; when the id(s) included in request are not found.</p>"
           }
         ]
       },
@@ -205,13 +205,13 @@ define({ "api": [
             "group": "Error 404",
             "optional": false,
             "field": "error",
-            "description": "<p>The error that was thrown.</p>"
+            "description": ""
           },
           {
             "group": "Error 404",
             "optional": false,
             "field": "error.message",
-            "description": "<p>The error message.</p>"
+            "description": "<p>&quot;NotFound&quot; when the id(s) included in request are not found.</p>"
           }
         ]
       },
@@ -400,13 +400,13 @@ define({ "api": [
             "group": "Error 404",
             "optional": false,
             "field": "error",
-            "description": "<p>The error that was thrown.</p>"
+            "description": ""
           },
           {
             "group": "Error 404",
             "optional": false,
             "field": "error.message",
-            "description": "<p>The error message.</p>"
+            "description": "<p>&quot;NotFound&quot; when the id(s) included in request are not found.</p>"
           }
         ]
       },
@@ -497,13 +497,13 @@ define({ "api": [
             "group": "Error 404",
             "optional": false,
             "field": "error",
-            "description": "<p>The error that was thrown.</p>"
+            "description": ""
           },
           {
             "group": "Error 404",
             "optional": false,
             "field": "error.message",
-            "description": "<p>The error message.</p>"
+            "description": "<p>&quot;NotFound&quot; when the id(s) included in request are not found.</p>"
           }
         ]
       },

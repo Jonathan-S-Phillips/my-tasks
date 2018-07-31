@@ -15,8 +15,8 @@ export class TaskController {
     /**
      * @apiDefine TaskNotFoundResponse
      * 
-     * @apiError (Error 404) error         The error that was thrown.
-     * @apiError (Error 404) error.message The error message.
+     * @apiError (Error 404) error
+     * @apiError (Error 404) error.message "NotFound" when the id(s) included in request are not found.
      * 
      * @apiErrorExample {json} Error-Response:
      *      HTTP/1.1 404 NotFound
@@ -30,7 +30,7 @@ export class TaskController {
     /**
      * @apiDefine TaskBadRequestResponse
      * 
-     * @apiError (Error 400) error         The error that was thrown.
+     * @apiError (Error 400) error
      * @apiError (Error 400) error.message The error message.
      * 
      * @apiErrorExample {json} Error-Response:
