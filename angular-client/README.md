@@ -1,6 +1,7 @@
 # MyTasks
 
 [![Build Status](https://travis-ci.org/Jonathan-S-Phillips/my-tasks.svg?branch=master)](https://travis-ci.org/Jonathan-S-Phillips/my-tasks)
+[![Coverage Status](https://coveralls.io/repos/github/Jonathan-S-Phillips/my-tasks/badge.svg?branch=master)](https://coveralls.io/github/Jonathan-S-Phillips/my-tasks?branch=master)
 
 MyTasks is a simple application meant to create and manage Tasks. Tasks are displayed in tables, separated by state (pending or complete), and can be filtered by name, description, priority, due date, and date completed (if complete). Pending tasks also have keyword filters and visual indicators for tasks over due (tasks with due date before todays date), tasks due today, and tasks due tomorrow. Tasks have a very simple repeating capability; they can repeat daily, weekly, monthly, or yearly.
 
@@ -133,6 +134,8 @@ npm run test:coverage
 ```
 
 Separate coverage reports are generated for the client and the server using Istanbul Code Coverage. A coverage directory is added to both the client and server directories and the reports are added there. To view the reports browse to either the client or server, select the corresponding coverage directory, and open the index.html file found using your favorite browser.
+
+**Note on coveralls coverage badge: that is just server side coverage currently. I have not configured the angular-client with coveralls yet.
 
 ### e2e Tests
 

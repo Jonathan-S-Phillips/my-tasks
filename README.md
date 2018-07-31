@@ -7,8 +7,6 @@ MyTasks is a simple application meant to create and manage Tasks. Tasks are disp
 
 The application is a full stack [TypeScript](https://www.typescriptlang.org/) app divided into an [Angular](https://angular.io/) client, [Express](https://github.com/expressjs/express) API server, and [SQLite](https://github.com/mapbox/node-sqlite3) database. See the [Built With](##built-with) section for more details on the client, server, and database. 
 
-**Note on coverage: that is just server side coverage currently. I have not configured the angular-client with coveralls yet.
-
 ## Table of Contents
 
 * [Getting Started](#getting-started)
@@ -136,6 +134,8 @@ npm run test:coverage
 ```
 
 Separate coverage reports are generated for the client and the server using Istanbul Code Coverage. A coverage directory is added to both the client and server directories and the reports are added there. To view the reports browse to either the client or server, select the corresponding coverage directory, and open the index.html file found using your favorite browser.
+
+**Note on coveralls coverage badge: that is just server side coverage currently. I have not configured the angular-client with coveralls yet.
 
 ### e2e Tests
 
