@@ -34,8 +34,10 @@ export class ButtonsComponent implements OnDestroy, OnInit {
     @Input() hideEditButton: boolean;
     /** The Task(s) being managed with the buttons. */
     @Input() tasks: Task[];
-    /** Event emitted when one of the buttons is clicked. */
-    @Output() click: EventEmitter<boolean>;
+    /** Event emitted when Task is completed. */
+    @Output() complete: EventEmitter<boolean>;
+    /** Event emitted when Task is deleted. */
+    @Output() deleted: EventEmitter<boolean>;
     /** The subscriptions for the component. */
     private sub: Subscription;
 
@@ -44,7 +46,8 @@ export class ButtonsComponent implements OnDestroy, OnInit {
         private router: Router,
         private utilsService: UtilsService
     ){
-        this.click = new EventEmitter<boolean>();
+        this.complete = new EventEmitter<boolean>();
+        this.deleted = new EventEmitter<boolean>();
     }
 
     /**
@@ -60,7 +63,7 @@ export class ButtonsComponent implements OnDestroy, OnInit {
 
         // subscribe to the completeTask event from the dialog
         const sub = completeSelectedDialogRef.componentInstance.completeTask.subscribe(() => {
-            this.click.emit(true);
+            this.complete.emit(true);
         });
         this.sub.add(sub);
 
@@ -82,7 +85,7 @@ export class ButtonsComponent implements OnDestroy, OnInit {
 
         // subscribe to the deleteTask event from the dialog
         const sub = confirmDeleteDialogRef.componentInstance.deleteTask.subscribe(() => {
-            this.click.emit(true);
+            this.deleted.emit(true);
         });
         this.sub.add(sub);
 

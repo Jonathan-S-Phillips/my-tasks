@@ -115,6 +115,22 @@ export class EditTaskComponent implements OnInit, OnDestroy {
     }
 
     /**
+     * Initialize subscriptions to the ButtonsComponent EventEmitters once all child
+     * components have been initialized.
+     */
+    initViewChildSubscriptions() {
+        const completeSub = this.buttonBar.buttons.complete.subscribe(() => {
+            this.loadTask(this.task.id);
+        });
+        this.sub.add(completeSub);
+
+        const deleteSub = this.buttonBar.buttons.deleted.subscribe(() => {
+            this.cancel();
+        });
+        this.sub.add(deleteSub);
+    }
+
+    /**
      * Load the Task with the given id.
      * 
      * @param id The id of the Task to load. 
@@ -128,6 +144,7 @@ export class EditTaskComponent implements OnInit, OnDestroy {
             // initialize the paginator if the Tasks array is null
             if(this.tasks == null) {
                 this.initPaginator();
+                this.initViewChildSubscriptions();
             }
             
             // open dialog to modify just single task or all remaining tasks if task is not complete and
