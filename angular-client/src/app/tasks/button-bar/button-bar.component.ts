@@ -1,9 +1,11 @@
 /* angular libraries */
+import { Location } from '@angular/common';
 import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material';
 
 /* app */
 import { Task } from '@tasks/shared/models/task.model';
+import { ButtonsComponent } from '@tasks/buttons/buttons.component';
 
 /**
  * Creates a bar that consists of the main @link{ButtonsComponent} and
@@ -44,10 +46,19 @@ export class ButtonBarComponent {
     @Input() tasks: Task[];
     /** Event emitted when one of the buttons is clicked. */
     @Output() click: EventEmitter<boolean>;
+    /** The ButtonBar component. */
+    @ViewChild(ButtonsComponent) buttons: ButtonsComponent; 
     /** The paginator component. */
     @ViewChild(MatPaginator) paginator: MatPaginator;
 
-    constructor(){
+    constructor(private location: Location){
         this.click = new EventEmitter<boolean>();
+    }
+
+    /**
+     * Returns the user back to 
+     */
+    back() {
+        this.location.back();
     }
 }
