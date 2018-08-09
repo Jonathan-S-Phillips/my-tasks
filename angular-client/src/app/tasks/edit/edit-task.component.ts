@@ -141,10 +141,15 @@ export class EditTaskComponent implements OnInit, OnDestroy {
             this.hideCompleteButton = task.isComplete;
             this.initIconClass();
 
-            // initialize the paginator if the Tasks array is null
             if(this.tasks == null) {
+                // initialize the paginator if the Tasks array is null
                 this.initPaginator();
                 this.initViewChildSubscriptions();
+            }
+            else {
+                // set the Task in the form component since the component
+                // has already been loaded with a different Task
+                this.taskFormComponent.setTask(task);
             }
             
             // open dialog to modify just single task or all remaining tasks if task is not complete and

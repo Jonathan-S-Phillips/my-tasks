@@ -189,6 +189,31 @@ export class TaskFormComponent implements OnDestroy, OnInit {
     }
 
     /**
+     * Set the Task for the component and update the form values accordingly. This
+     * method is meant to be called from the parent (when paging through Tasks).
+     * 
+     * @param task The Task to set for the form. 
+     */
+    setTask(task: Task) {
+        this.task = task;
+        this.mainPropertiesForm.controls['name'].setValue(this.task.name);
+        this.mainPropertiesForm.controls['priority'].setValue(this.task.priority);
+        this.mainPropertiesForm.controls['description'].setValue(this.task.description);
+        this.mainPropertiesForm.controls['due'].setValue(moment(this.task.dueDate, moment.ISO_8601, true).utc().toDate());
+
+        // set the repeat properties if the Task repeats
+        if(this.task.repeats) {
+            this.repeatPropertiesForm.controls['repeats'].setValue(this.task.repeats);
+            this.repeatPropertiesForm.controls['after'].setValue(this.task.endsAfter);
+        }
+
+        // set the date completed if the Task is complete
+        if(this.task.isComplete) {
+            this.dateCompletedForm.controls['dateCompleted'].setValue(moment(this.task.dateCompleted, moment.ISO_8601, true).utc().toDate());
+        }
+    }
+
+    /**
      * Handles updating the form validity when a property is updated on the form and emits the formValid
      * event.
      * 
