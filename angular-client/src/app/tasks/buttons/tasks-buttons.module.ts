@@ -2,7 +2,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { MatButtonModule, MatDialogModule } from '@angular/material';
+import { MatButtonModule, MatDialogModule, MatTooltipModule } from '@angular/material';
 import { RouterModule } from '@angular/router';
 
 /* fontawesome */
@@ -32,6 +32,7 @@ import { ButtonsComponent } from '@tasks/buttons/buttons.component';
         FlexLayoutModule,
         MatButtonModule,
         MatDialogModule,
+        MatTooltipModule,
         RouterModule,
 
         FontAwesomeModule
